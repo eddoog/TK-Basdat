@@ -57,6 +57,7 @@ a {
     flex-direction: column;
     padding: 0 50px;
     height: 100%;
+    width: 100%;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -81,6 +82,10 @@ button {
     letter-spacing: 1px;
     text-transform: uppercase;
     transition: transform 80ms ease-in;
+}
+
+button.life {
+    width: 100%;
 }
 
 button:active {
@@ -207,4 +212,42 @@ button.ghost {
     height: 30px;
     letter-spacing: 15px;
     align-items: center;
+}
+
+.hide {
+    display: none;
+}
+
+.step {
+    animation: fade 250ms ease-in-out forwards;
+}
+
+.step.active {
+    animation: slide 250ms 125ms ease-in-out both;
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(200%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fade {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(0.75);
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0);
+    }
 }
