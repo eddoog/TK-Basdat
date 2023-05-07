@@ -18,8 +18,8 @@
         <form action="#" data-multistep>
             <h1>Create Account</h1>
             <div class="step" data-step>
-                <span>Use your email for registration</span>
-                <input type="email" placeholder="Email" name="email" required />
+                <span>Use your credentials for registration</span>
+                <input type="text" placeholder="Username" name="username" required />
                 <input
                     type="password"
                     placeholder="Password"
@@ -106,6 +106,7 @@
                     name="nomorHP"
                     required
                 />
+                <input type="email" placeholder="Email" name="email" required />
                 <input
                     type="text"
                     placeholder="Alamat"
@@ -225,18 +226,18 @@
                     <button type="button" data-previous class="life">
                         Previous
                     </button>
-                    <button type="submit" class="life">Submit</button>
+                    <button type="submit" class="life">Sign Up</button>
                 </div>
             </div>
         </form>
     </div>
     <div class="form-container sign-in-container">
-        <form action="#">
+        <form action="#" data-login>
             <h1>Sign in</h1>
-            <span>or use your account</span>
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Password" />
-            <button class="life">Sign In</button>
+            <span>Use your credentials to log in</span>
+            <input type="text" placeholder="Username" name="username" required />
+            <input type="password" placeholder="Password" name="password" required />
+            <button type="submit" class="life">Sign In</button>
         </form>
     </div>
     <div class="overlay-container">
@@ -257,5 +258,5 @@
         </div>
     </div>
 </div>
-<script src="{% static '/js/authentication.js' %}"></script>
+<script src="{% static 'js/authentication.js' %}"></script>
 {% endblock content %}
