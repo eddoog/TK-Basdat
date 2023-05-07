@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<link href="{% static 'css/manage_pertandingan.css' %}" rel="stylesheet" />
+{% endblock meta %}
+{% block content %}
+<body>
+    <div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h2>List Pertandingan</h2>
+        </div>
+        </div>    
+      <div class="row">
+        <div class="col-md-6">
+            <table class="table table-bordered custom-table">
+            <thead>
+              <tr>
+                <th class="table-heading">Group A</th>
+                <th class="table-heading">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Tim 1 vs Tim 2</td>
+                <td>
+                    <a href="#">Update</a>
+                    <a href="#">Delete</a>
+                </td>
+              </tr>
+              <tr>
+                <td>Tim 2 vs Tim 3</td>
+                <td>
+                    <a href="#">Update</a>
+                    <a href="#">Delete</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-md-6">
+            <table class="table table-bordered custom-table">
+            <thead>
+              <tr>
+                <th class="table-heading">Group B</th>
+                <th class="table-heading">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Tim 4 vs Tim 5</td>
+                <td>
+                    <a href="#">Update</a>
+                    <a href="#">Delete</a>
+                </td>
+              </tr>
+              <tr>
+                <td>Tim 5 vs Tim 6</td>
+                <td>
+                    <a href="#">Update</a>
+                    <a href="#">Delete</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <table class="table table-bordered custom-table">
+            <thead>
+              <tr>
+                <th class="table-heading">Group C</th>
+                <th class="table-heading">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Tim 7 vs Tim 8</td>
+                <td>
+                    <a href="#">Update</a>
+                    <a href="#">Delete</a>
+                </td>
+              </tr>
+              <tr>
+                <td>Tim8 vs Tim 9</td>
+                <td>
+                    <a href="#">Update</a>
+                    <a href="#">Delete</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-md-6">
+          <table class="table table-bordered custom-table">
+            <thead>
+              <tr>
+                <th class="table-heading">Group D</th>
+                <th class="table-heading">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>? vs ?</td>
+                <td><a href="#">Add</a></td>
+              </tr>
+              <tr>
+                <td>? vs ?</td>
+                <td><a href="#">Add</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    </div>
+  </body>
+  {% endblock content %}

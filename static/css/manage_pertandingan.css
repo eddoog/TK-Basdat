@@ -1,43 +1,69 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
- body {
-    font-family: 'Montserrat', sans-serif;
-    background: #f6f5f7;
-    justify-content: center;
-    align-items: center;
-    margin-top: 50px;
-    margin-bottom: 50px;
-  }
 
-h1, p {
+body {
   font-family: 'Montserrat', sans-serif;
+  background: #f6f5f7;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
-button{
-    border-radius: 20px;
-    border: 1px solid #ff4b2b;
-    background: #ff445c;
-    color: #fff;
-    font-size: 12px;
-    font-weight: bold;
-    padding: 12px 45px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    transition: transform 80ms ease-in;
+h2 {
+  text-align: center;
+  font-weight: bold;
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 30px;
 }
 
-button:hover,
-.button:focus {
-      background-color: #ff2400;
-      border-color: #ff2400;
-    }
+label {
+  font-weight: bold;
+  color: #333;
+}
+
+select.form-control {
+  border-radius: 10px;
+}
+
+button.btn-primary {
+  border-radius: 20px;
+  border: 1px solid #ff4b2b;
+  background: #ff445c;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 12px 30px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: background-color 200ms ease-in;
+}
+
+button.btn-primary:hover,
+button.btn-primary:focus {
+  background-color: #ff2400;
+  border-color: #ff2400;
+}
 
 .custom-table .table-heading {
-    text-align: center;
-    font-weight: bold;
-    font-size: 18px;
-    background-color: #ff445c;
-    color: #fff;
-    }
-.custom-table{
-    background-color: white;
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+  background-color: #ff445c;
+  color: #fff;
+}
+
+.custom-table {
+  background-color: white;
+}
+
+.btn-next {
+  border: 1px solid #ff4b2b;
+  background: #ff445c;
+  color: #fff;
+}
+
+.btn-next:hover {
+  background-color: #ff2400;
+  border-color: #ff2400;
 }

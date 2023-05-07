@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<link href="{% static 'css/manage_pertandingan.css' %}" rel="stylesheet" />
+{% endblock meta %}
+{% block content %}
+<body>
+    <div class="container">
+        <h2 class="text-center">Buat Pertandingan</h2>
+        
+        <div class="form-group">
+            <label for="main-referee">Main Referee:</label>
+            <select class="form-control" id="main-referee">
+                <!-- Add options for main referee -->
+                <option>Referee 1</option>
+                <option>Referee 2</option>
+                <option>Referee 3</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="linesman-referee">Linesman Referee:</label>
+            <select class="form-control" id="linesman-referee">
+                <!-- Add options for linesman referee -->
+                <option>Linesman 1</option>
+                <option>Linesman 2</option>
+                <option>Linesman 3</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="second-linesman-referee">Second Linesman Referee:</label>
+            <select class="form-control" id="second-linesman-referee">
+                <!-- Add options for second linesman referee -->
+                <option>Second Linesman 1</option>
+                <option>Second Linesman 2</option>
+                <option>Second Linesman 3</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="backup-referee">Backup Referee:</label>
+            <select class="form-control" id="backup-referee">
+                <!-- Add options for backup referee -->
+                <option>Backup Referee 1</option>
+                <option>Backup Referee 2</option>
+                <option>Backup Referee 3</option>
+            </select>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="team1">Tim 1:</label>
+                    <select class="form-control" id="team1">
+                        <!-- Add options for team 1 -->
+                        <option>Team A</option>
+                        <option>Team B</option>
+                        <option>Team C</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="team2">Tim 2:</label>
+                    <select class="form-control" id="team2">
+                        <!-- Add options for team 2 -->
+                        <option>Team X</option>
+                        <option>Team Y</option>
+                        <option>Team Z</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center mt-4">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </div>
+</body>
+
+{% endblock content %}
