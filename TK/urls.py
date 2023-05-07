@@ -26,5 +26,6 @@ urlpatterns = [
     path('manajer/', include('manajer.urls')),
     path('dashboard/', include('dashboard.urls')),
     path('authentication/', include('authentication.urls')),
-    path('manage_pertandingan/',include('manage_pertandingan.urls')),
+    path('manage_pertandingan/', include('manage_pertandingan.urls')), ,
+    path('pembuatan_pertandingan/', include('pembuatan_pertandingan.urls'))
 ]

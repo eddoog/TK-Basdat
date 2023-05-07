@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<link href="{% static 'css/manage_pertandingan.css' %}" rel="stylesheet" />
+{% endblock meta %}
+{% block content %}
+
+<body>
+  <div class="container">
+    <h2 class="text-center">List Waktu Stadium [Nama Stadium]</h2>
+    <table class="table table-bordered custom-table">
+      <thead>
+        <tr>
+          <th th class="table-heading">List Waktu</th>
+          <th th class="table-heading">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>10:00 AM</td>
+          <td>Dipesan</td>
+        </tr>
+        <tr>
+          <td>11:30 AM</td>
+          <td>Dipesan</td>
+        </tr>
+        <tr>
+          <td>01:00 PM</td>
+          <td>
+            <button class="btn btn-primary btn-next">Next</button>
+          </td>
+        </tr>
+        <tr>
+          <td>02:30 PM</td>
+          <td>
+            <button class="btn btn-primary btn-next">Next</button>
+          </td>
+        </tr>
+        <tr>
+          <td>04:00 PM</td>
+          <td>Dipesan</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+
+</body>
+{% endblock content %}
