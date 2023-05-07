@@ -1,0 +1,106 @@
+{% extends 'base.html' %} {% load static %} {% block meta %}
+<title>Dashboard</title>
+<link href="{% static 'css/dashboard.css' %}" rel="stylesheet" />
+{% endblock meta %} {% block css %} {% endblock css %} {% block content %}
+<div class="body-container">
+    <section id="mid">
+        {% include 'sidebar.html' %}
+        <div class="midMid">
+            <div class="midMid1">
+                <div class="topHead">
+                    <h1>Dashboard</h1>
+                    <p>Welcome The App!</p>
+                </div>
+                <ul>
+                    <li>
+                        <h3>Alfredo</h3>
+                        <p>Nama Depan</p>
+                    </li>
+                    <li>
+                        <h3>Alumni</h3>
+                        <p>Status</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="midMid2">
+                <ul id="option">
+                    <li class="inactive">ALL</li>
+                    <hr />
+                    <li class="activeMid">DAFTAR RAPAT</li>
+                </ul>
+            </div>
+            <div class="midMid3">
+                <div class="progress">
+                    <p>Completed</p>
+                    <h3>Rapat 1</h3>
+                    <p>Perwakilan Panitia: Alfredo</p>
+                    <a href="#">History</a><br />
+                    <progress value="100" max="100"></progress>
+                    <h4>TIME: OCT 27, 2022</h4>
+                </div>
+                <div class="progress">
+                    <p>Completed</p>
+                    <h3>Rapat 2</h3>
+                    <p>Perwakilan Panitia: Alfredo</p>
+                    <a href="#">History</a><br />
+                    <progress value="100" max="100"></progress>
+                    <h4>TIME: SEPT 10, 2022</h4>
+                </div>
+                <div class="progress">
+                    <p>Rapat 3</p>
+                    <h3>QWERTY Development</h3>
+                    <p>Perwakilan Panitia: Alfredo</p>
+                    <a href="#">History</a><br />
+                    <progress value="100" max="100"></progress>
+                    <h4>TIME: AUG 5, 2022</h4>
+                </div>
+                <div class="progress">
+                    <p>Rapat 4</p>
+                    <h3>MNOP Development</h3>
+                    <p>Perwakilan Panitia: Alfredo</p>
+                    <a href="#">History</a><br />
+                    <progress value="100" max="100"></progress>
+                    <h4>TIME: NOV 30, 2022</h4>
+                </div>
+            </div>
+        </div>
+        <div class="midRight">
+            <h2>Personal Information</h2>
+            <ul>
+                <li>
+                    <h3>Nama Depan</h3>
+                    <p>Alfredo</p>
+                </li>
+                <li>
+                    <h3>Nama Belakang</h3>
+                    <p>Austin</p>
+                </li>
+                <li>
+                    <h3>Nomor HP</h3>
+                    <p>012345678910</p>
+                </li>
+                <li>
+                    <h3>Email</h3>
+                    <p>alfredo.austin@ui.ac.id</p>
+                </li>
+                <li>
+                    <h3>Alamat</h3>
+                    <p>
+                        Jl Jend A Yani 2 Perk Pulomas Satu Ged 5 Lt 2 Ruang 3,
+                        Kayu Putih, Pulo Gadun, Jakarta,
+                    </p>
+                </li>
+                <li>
+                    <h3>Status</h3>
+                    Mahasiswa
+                </li>
+                <li>
+                    <h3>Jabatan</h3>
+                    <p>Ketua IT Dev</p>
+                </li>
+            </ul>
+        </div>
+    </section>
+</div>
+<script src="{% static 'js/dashboard.js' %}"></script>
+{% endblock content %}
