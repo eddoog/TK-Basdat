@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'authentication',
     'manajer',
+    'dashboard',
+    'manage_pertandingan',
+    'pembuatan_pertandingan',
 ]
 
 MIDDLEWARE = [
