@@ -5,5 +5,5 @@ app_name = 'mulai_rapat'
 
 urlpatterns = [
     path('', mulai_rapat, name='mulai_rapat'),
-    path('/rapat', rapat, name='rapat')
+    path('rapat', rapat, name='rapat')
 ]
