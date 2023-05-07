@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<link href="{% static 'css/manage_pertandingan.css' %}" rel="stylesheet" />
+{% endblock meta %}
+{% block content %}    
+    <body>
+        <div class="container">
+            <div class="table-responsive">
+            <table class="table table-bordered custom-table">
+              <thead>
+                <tr>
+                  <th colspan="5" class="table-heading">List Pertandingan Group Stage</th>
+                </tr>
+                <tr>
+                  <th>Grup</th>
+                  <th>Tim</th>
+                  <th>Waktu</th>
+                  <th>Pemenang</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td rowspan="3">Grup A</td>
+                  <td>Tim 1 VS Tim 2</td>
+                  <td>05 May 2023, 10:00 AM</td>
+                  <td>Tim 1</td>
+                  <td>
+                    <a href="#">Lihat Peristiwa Tim 1</a><br>
+                    <a href="#">Lihat Peristiwa Tim 2</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Tim 1 VS Tim 3</td>
+                  <td>05 May 2023, 2:30 PM</td>
+                  <td>Tim 3</td>
+                  <td>
+                    <a href="#">Lihat Peristiwa Tim 1</a><br>
+                    <a href="#">Lihat Peristiwa Tim 2</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Tim 2 VS Tim 3</td>
+                  <td>05 May 2023, 4:45 PM</td>
+                  <td>Tim 1</td>
+                  <td>
+                    <a href="#">Lihat Peristiwa Tim 1</a><br>
+                    <a href="#">Lihat Peristiwa Tim 2</a>
+                  </td>
+                </tr>
+                <tr>
+                    <td rowspan="3">Grup B</td>
+                    <td>Tim 4 VS Tim 5</td>
+                    <td>06 May 2023, 10:00 AM</td>
+                    <td>Tim 5</td>
+                    <td>
+                      <a href="#">Lihat Peristiwa Tim 1</a><br>
+                      <a href="#">Lihat Peristiwa Tim 2</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Tim 4 VS Tim 6</td>
+                    <td>06 May 2023, 2:30 PM</td>
+                    <td>Tim 6</td>
+                    <td>
+                      <a href="#">Lihat Peristiwa Tim 1</a><br>
+                      <a href="#">Lihat Peristiwa Tim 2</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Tim 5 VS Tim 6</td>
+                    <td>06 May 2023, 4:45 PM</td>
+                    <td>Tim 5</td>
+                    <td>
+                      <a href="#">Lihat Peristiwa Tim 1</a><br>
+                      <a href="#">Lihat Peristiwa Tim 2</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td rowspan="3">Grup C</td>
+                    <td>Tim 7 VS Tim 8</td>
+                    <td>[Waktu Dimulai -5 Menit]</td>
+                    <td>-</td>
+                    <td>
+                      <a href="#">Mulai</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Tim 7 VS Tim 9</td>
+                    <td>07 May 2023, 2:30 PM</td>
+                    <td>-</td>
+                    <td>
+                      Belum Waktunya
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Tim 8 VS Tim 9</td>
+                    <td>07 May 2023, 4:45 PM</td>
+                    <td>-</td>
+                    <td>
+                        Belum Waktunya
+                    </td>
+                  </tr>
+                  <tr>
+                    <td rowspan="3">Grup D</td>
+                    <td>Tim 10 VS Tim 11</td>
+                    <td>08 May 2023, 10:00 AM</td>
+                    <td>-</td>
+                    <td>
+                        Belum Waktunya
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Tim 10 VS Tim 12</td>
+                    <td>08 May 2023, 2:30 PM</td>
+                    <td>-</td>
+                    <td>
+                        Belum Waktunya
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Tim 11 VS Tim 12</td>
+                    <td>08 May 2023, 4:45 PM</td>
+                    <td>-</td>
+                    <td>
+                      Belum Waktunya
+                    </td>
+                  </tr>
+                  
+              </tbody>
+            </table>
+            <div class="text-center">
+              <button class="button">Finish</button>
+            </div>
+            
+    
+      
+    </body>
+{% endblock content %}

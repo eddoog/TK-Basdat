@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<link href="{% static 'css/manage_pertandingan.css' %}" rel="stylesheet" />
+{% endblock meta %}
+{% block content %}    
+    <body>
+        <div class="container">
+            <div class="table-responsive">
+            <table class="table table-bordered custom-table">
+              <thead>
+                <tr>
+                  <th colspan="5" class="table-heading">List Pertandingan Group Stage</th>
+                </tr>
+                <tr>
+                  <th>Grup</th>
+                  <th>Tim</th>
+                  <th>Waktu</th>
+                  <th>Pemenang</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td rowspan="3">Grup A</td>
+                  <td>Tim 1 VS Tim 2</td>
+                  <td>15 May 2023, 10:00 AM</td>
+                  <td>-</td>
+                  <td>
+                    <a href ="#"> Update</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Tim 1 VS Tim 3</td>
+                  <td>15 May 2023, 2:30 PM</td>
+                  <td>-</td>
+                  <td>
+                    <a href ="#"> Update</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Tim 2 VS Tim 3</td>
+                  <td>15 May 2023, 4:45 PM</td>
+                  <td>-</td>
+                  <td>
+                    <a href ="#"> Update</a>
+                  </td>
+                </tr>
+                <tr>
+                    <td rowspan="3">Grup B</td>
+                    <td>Tim 4 VS Tim 5</td>
+                    <td>16 May 2023, 10:00 AM</td>
+                    <td>-</td>
+                    <td>
+                      <a href="#">Update</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Tim 4 VS Tim 6</td>
+                    <td>16 May 2023, 2:30 PM</td>
+                    <td>-</td>
+                    <td>
+                      <a href="#">Update</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Tim 5 VS Tim 6</td>
+                    <td>16 May 2023, 4:45 PM</td>
+                    <td>-</td>
+                    <td>
+                      <a href="#">Update</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td rowspan="3">Grup C</td>
+                    <td>Tim 7 VS Tim 8</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>
+                      <a href="#">Update</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Tim 7 VS Tim 9</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>
+                      <a href ="#"> Update</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Tim 8 VS Tim 9</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>
+                        <a href ="#"> Update</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td rowspan="3">Grup D</td>
+                    <td>Tim 10 VS Tim 11</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>
+                        <a href ="#"> Update</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Tim 10 VS Tim 12</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>
+                        <a href ="#"> Update</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Tim 11 VS Tim 12</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>
+                      <a href ="#"> Update</a>
+                    </td>
+                  </tr>
+                  
+              </tbody>
+            </table>
+            </div>
+            <div class="text-center">
+                <button class="button">Save</button>
+            </div>
+          </div>
+    
+      
+    </body>
+{% endblock content %}

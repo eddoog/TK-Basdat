@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<link href="{% static 'css/manage_pertandingan.css' %}" rel="stylesheet" />
+{% endblock meta %}
+{% block content %}
+<head>
+  <title>Peristiwa Tim</title>
+</head>
+<body>
+    <div class="container">
+        <table class="table table-bordered custom-table">
+            <thead>
+              <tr>
+                <th colspan="2" class="table-heading">Peristiwa Tim [Nama Tim]</th>
+              </tr>
+            <tr>
+              <th>Posisi</th>
+              <th>Peristiwa</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Goalkeeper</td>
+              <td>Peristiwa 1</td>
+            </tr>
+            <tr>
+              <td>Right Back</td>
+              <td>Peristiwa 2</td>
+            </tr>
+            <tr>
+              <td>Center Back</td>
+              <td>Peristiwa 3</td>
+            </tr>
+            <tr>
+              <td>Center Back</td>
+              <td>Peristiwa 4</td>
+            </tr>
+            <tr>
+              <td>Left Back</td>
+              <td>Peristiwa 5</td>
+            </tr>
+            <tr>
+              <td>Right Midfielder</td>
+              <td>Peristiwa 6</td>
+            </tr>
+            <tr>
+              <td>Center Midfielder</td>
+              <td>Peristiwa 7</td>
+            </tr>
+            <tr>
+              <td>Center Midfielder</td>
+              <td>Peristiwa 8</td>
+            </tr>
+            <tr>
+              <td>Left Midfielder</td>
+              <td>Peristiwa 9</td>
+            </tr>
+            <tr>
+              <td>Striker</td>
+              <td>Peristiwa 10</td>
+            </tr>
+            <tr>
+              <td>Striker</td>
+              <td>Peristiwa 11</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+</body>
+</html>
+
+{% endblock content %}
