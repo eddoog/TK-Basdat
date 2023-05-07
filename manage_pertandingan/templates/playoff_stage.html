@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<link href="{% static 'css/manage_pertandingan.css' %}" rel="stylesheet" />
+{% endblock meta %}
+{% block content %}
+<head>
+    <title>List Pertandingan Playoff</title>
+</head>
+
+<body>
+    <div class="container">
+        <table class="table table-bordered custom-table">
+            <thead>
+                <tr>
+                    <th colspan="4" class="table-heading">List Pertandingan Playoff</th>
+                </tr>
+                <tr>
+                    <th>Tim</th>
+                    <th>Waktu</th>
+                    <th>Pemenang</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Tim 1 VS Tim 5</td>
+                    <td>30 May 2023, 10:00 AM</td>
+                    <td>Tim 1</td>
+                    <td>
+                        <a href="#">Lihat Peristiwa Tim 1</a><br>
+                        <a href="#">Lihat Peristiwa Tim 2</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Tim 3 VS Tim 9</td>
+                    <td>[Waktu Dimulai -5 Menit]</td>
+                    <td>-</td>
+                    <td>
+                        <a href="#">Mulai</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Tim 5 VS Tim 6</td>
+                    <td>31 May 2023, 4:45 PM</td>
+                    <td>-</td>
+                    <td>
+                        Belum Waktunya
+                    </td>
+                </tr>
+                <!-- Add more rows here as needed -->
+            </tbody>
+        </table>
+        <div class="text-center">
+            <button class="button">Finish</button>
+          </div>
+    </div>
+
+    
+</body>
+{% endblock content %}
