@@ -1,0 +1,34 @@
+{% extends 'base.html' %} 
+{% load static %} 
+
+{% block meta %}
+
+<!-- <link href="{% static 'css/authentication.css' %}" rel="stylesheet" />
+<link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+    crossorigin="anonymous" -->
+
+  <title>Rapat</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+{% endblock meta %} 
+
+{% block content %}
+<div class="container mt-5">
+  <form>
+    <div class="form-group">
+      <label for="match">RAPAT PERTANDINGAN [?] vs [?]</label>
+    <div class="form-group">
+      <label for="rapat">Isi Rapat:</label>
+      <textarea class="form-control" id="rapat" rows="5"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+<!-- Bootstrap JavaScript -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+{% endblock content %}

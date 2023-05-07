@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'authentication',
+    'mulai_rapat',
+    'pembelian_tiket',
+    'mulai_pertandingan'
     'manajer',
     'dashboard',
     'manage_pertandingan',

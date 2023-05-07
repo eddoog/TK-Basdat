@@ -1,0 +1,54 @@
+{% extends 'base.html' %} 
+{% load static %} 
+
+{% block meta %}
+
+<!-- <link href="{% static 'css/authentication.css' %}" rel="stylesheet" />
+<link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+    crossorigin="anonymous" -->
+
+  <title>Mulai Rapat</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+{% endblock meta %} 
+
+{% block content %}
+<div class="container mt-5">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th colspan="5" scope="colgroup">PILIH PERTANDINGAN</th>
+        </tr>
+        <tr>
+          <th scope="col">Tim Berbanding</th>
+          <th scope="col">Stadium</th>
+          <th scope="col">Tanggal dan Waktu</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Tim A vs Tim B</td>
+          <td>Stadium X</td>
+          <td>10 Mei 2023, 19.00 WIB</td>
+          <td><button type="button" class="btn btn-primary">Mulai Rapat</button></td>
+        </tr>
+        <tr>
+          <td>Tim C vs Tim D</td>
+          <td>Stadium Y</td>
+          <td>11 Mei 2023, 20.00 WIB</td>
+          <td><button type="button" class="btn btn-primary">Mulai Rapat</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- Bootstrap JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+
+{% endblock content %}
+

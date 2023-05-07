@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mulai Pertandingan</title>
+  <!-- Memanggil CSS Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- CSS tambahan untuk memperindah tampilan -->
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    
+    .container {
+      margin-top: 50px;
+    }
+    
+    .btn-primary, .btn-success {
+      font-size: 18px;
+      font-weight: bold;
+      text-transform: uppercase;
+      padding: 10px 20px;
+      border-radius: 5px;
+    }
+    
+    .table th, .table td {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <form action="#" method="POST">
+      <table class="table table-bordered">
+        <thead class="thead-dark">
+          <tr>
+            <th>Tim 1</th>
+            <th>Tim 2</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Tim A</td>
+            <td>Tim B</td>
+            <td>
+              <div class="d-flex justify-content-around">
+                <form action="pilih_peristiwa.html" method="GET">
+                  <button type="submit" class="btn btn-primary">Masukkan Peristiwa Tim 1</button>
+                </form>
+                <form action="pilih_peristiwa.html" method="GET">
+                  <button type="submit" class="btn btn-primary">Masukkan Peristiwa Tim 2</button>
+                </form>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="row mt-5">
+        <div class="col-md-12 d-flex justify-content-center">
+          <button type="submit" class="btn btn-success">SUBMIT</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
