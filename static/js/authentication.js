@@ -11,6 +11,25 @@ signInButton.addEventListener('click', () =>
     container.classList.remove('right-panel-active')
 );
 
+const loginForm = document.querySelector('[data-login]');
+
+console.log(loginForm);
+
+loginForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    console.log(e);
+
+    const formData = new FormData(loginForm);
+
+    const data = {};
+    for (const [name, value] of formData) {
+        data[name] = value;
+        console.log(`Name: ${name}, Value: ${value}`);
+    }
+
+    console.log(data);
+});
+
 const multiStepForm = document.querySelector('[data-multistep]');
 const formSteps = [...multiStepForm.querySelectorAll('[data-step]')];
 let currentStep = formSteps.findIndex((step) => {
@@ -75,7 +94,7 @@ multiStepForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const formData = new FormData(multiStepForm);
     const data = {};
-    for (let [name, value] of formData) {
+    for (const [name, value] of formData) {
         if (
             name === 'jabatan' &&
             document.querySelector('input[name="role"]:checked').value !==

@@ -41,6 +41,10 @@ INSTALLED_APPS = [
     'mulai_rapat',
     'pembelian_tiket',
     'mulai_pertandingan'
+    'manajer',
+    'dashboard',
+    'manage_pertandingan',
+    'pembuatan_pertandingan',
 ]
 
 MIDDLEWARE = [

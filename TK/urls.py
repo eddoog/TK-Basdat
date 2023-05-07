@@ -23,5 +23,8 @@ urlpatterns = [
     path('mulai_rapat', include('mulai_rapat.urls')),
     path('pembelian_tiket', include('pembelian_tiket.urls')),
     path('mulai_pertandingan', include('mulai_pertandingan.urls'))
-
+    path('manajer/', include('manajer.urls')),
+    path('dashboard/', include('dashboard.urls')),
+    path('authentication/', include('authentication.urls')),
+    path('manage_pertandingan/',include('manage_pertandingan.urls')),
 ]

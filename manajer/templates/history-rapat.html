@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>Riwayat Rapat</title>
+
+<!-- Style -->
+<link href="{% static 'css/history-rapat.css' %}" rel="stylesheet" />
+{% endblock meta %}
+
+{% block content %}
+<div class="d-flex align-items-center h-100 pb-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="d-flex justify-content-center me-4">
+                <h2 class="blue">List Rapat</h2>
+            </div>
+            <div class="col-md-8 col-md-offset-2">
+                <div class="rapat-table">
+                    <table class="table table-borderless table-striped">
+                        <thead>
+                        <th>Rapat Tim</th>
+                        <th>Nama Panitia</th>
+                        <th>Stadium</th>
+                        <th>Tanggal dan Waktu</th>
+                        <th>Action</th>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>A vs B</td>
+                            <td>XYZ</td>
+                            <td>Gelora Bung Karno</td>
+                            <td>5 Juli 2023, 07.00 - 09.00</td>
+                            <td><a href="/manajer/history-rapat"><button type="button">Lihat laporan rapat</button></a></td>
+                        </tr>
+                        <tr>
+                            <td>C vs D</td>
+                            <td>XYZ</td>
+                            <td>Gelora Bung Karno</td>
+                            <td>7 Juli 2023, 13.00 - 15.00</td>
+                            <td><a href="/manajer/history-rapat"><button type="button">Lihat laporan rapat</button></a></td>
+                        </tr>
+                        <tr>
+                            <td>E vs F</td>
+                            <td>XYZ</td>
+                            <td>Gelora Bandung Lautan Api</td>
+                            <td>10 Juli 2023, 13.00 - 15.00</td>
+                            <td><a href="/manajer/history-rapat"><button type="button">Lihat laporan rapat</button></a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
