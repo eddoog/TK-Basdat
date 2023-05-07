@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>Peminjaman Stadium</title>
+
+<!-- Style -->
+<link href="{% static 'css/peminjaman-stadium.css' %}" rel="stylesheet" />
+{% endblock meta %}
+
+{% block content %}
+<div class="d-flex align-items-center h-100 pb-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="d-flex justify-content-center me-4">
+                <h2 class="green">Riwayat Peminjaman Stadium</h2>
+            </div>
+            <div class="col-md-8 col-md-offset-2">
+                <div class="pertandingan-table">
+                    <table class="table table-borderless table-striped">
+                        <thead>
+                        <th>Stadium</th>
+                        <th>Waktu</th>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Gelora Bung Karno</td>
+                            <td>5 Juli 2023, 07.00 - 09.00</td>
+                        </tr>
+                        <tr>
+                            <td>Gelora Bung Karno</td>
+                            <td>7 Juli 2023, 13.00 - 15.00</td>
+                        </tr>
+                        <tr>
+                            <td>Gelora Bandung Lautan Api</td>
+                            <td>10 Juli 2023, 13.00 - 15.00</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="d-flex justify-content-center me-4">
+                    <a href="/manajer/peminjaman-stadium/pesan">
+                        <button type="button">
+                            Pesan Stadium
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
