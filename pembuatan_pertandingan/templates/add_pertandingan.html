@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<link href="{% static 'css/manage_pertandingan.css' %}" rel="stylesheet" />
+{% endblock meta %}
+{% block content %}
+
+<style>
+    
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #333333;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: bold;
+      color: #333333;
+    }
+  </style>
+  <title>Pembuatan Pertandingan</title>
+</head>
+
+<body>
+  <div class="container">
+    <h2>Pembuatan Pertandingan</h2>
+    <form>
+      <div class="form-group">
+        <label for="stadium">Pilih Stadium:</label>
+        <select class="form-control" id="stadium">
+          <option value="stadium1">Stadium 1</option>
+          <option value="stadium2">Stadium 2</option>
+          <option value="stadium3">Stadium 3</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="date">Pilih Tanggal:</label>
+        <input type="date" class="form-control" id="date">
+      </div>
+      <div class="text-center">
+        <button class="button">Next</button>
+      </div>
+    </form>
+  </div>
+</body>
+{% endblock content %}
