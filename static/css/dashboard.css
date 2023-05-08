@@ -8,8 +8,8 @@
 
 body {
     width: 100%;
-    min-height: 100vh;
-    background: linear-gradient(145deg, #ff4b2b, #ff416c);
+    height: 100vh;
+    color: whitesmoke;
 }
 ::-webkit-scrollbar {
     width: 8px;
@@ -46,6 +46,11 @@ a {
 }
 .midLeft,
 .midRight {
+    background: linear-gradient(
+        145deg,
+        rgba(255, 77, 43, 0.95),
+        rgba(255, 65, 108, 0.95)
+    );
     width: 180px;
     background-color: rgba(255, 255, 255, 0.2);
     margin: 5px 2% 5px 0;
@@ -74,8 +79,9 @@ a {
 }
 .listbre ul li:hover,
 .activebre {
-    background-color: #d65db1;
+    background-color: whitesmoke;
     border-radius: 5px;
+    color: black;
 }
 .listbre img {
     width: 20px;
@@ -97,6 +103,7 @@ li {
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+    color: white;
 }
 .midRight h2 {
     font-weight: 900;
@@ -110,7 +117,7 @@ li {
     border-radius: 8px;
 }
 .midRight li h3 {
-    color: #845ec2;
+    color: white;
     font-weight: 700;
 }
 .midMid {
@@ -122,6 +129,11 @@ li {
 }
 .midMid1,
 .midMid2 {
+    background: linear-gradient(
+        145deg,
+        rgba(255, 77, 43, 0.95),
+        rgba(255, 65, 108, 0.95)
+    );
     background-color: rgba(255, 255, 255, 0.2);
     width: 100%;
     display: flex;
@@ -142,7 +154,6 @@ li {
     font-weight: 900;
 }
 .topHead p {
-    color: #845ec2;
     font-weight: 900;
 }
 .midMid1 ul {
@@ -184,7 +195,7 @@ li {
     border: none;
 }
 .activeMid {
-    color: #845ec2;
+    color: palevioletred;
     border-radius: 2px;
 }
 .midMid3 {
@@ -196,6 +207,11 @@ li {
     justify-content: space-evenly;
 }
 .progress {
+    background: linear-gradient(
+        145deg,
+        rgba(255, 77, 43, 0.925),
+        rgba(255, 65, 108, 0.925)
+    );
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -212,7 +228,6 @@ progress {
 }
 .progress h3 {
     font-size: 22px;
-    color: black;
 }
 .progress a {
     font-size: 15px;
@@ -224,8 +239,8 @@ progress {
     border-radius: 8px;
     width: 40%;
     text-align: center;
-    background-color: black;
-    color: white;
+    background-color: whitesmoke;
+    color: #ff4b2b;
 }
 
 .hide {
@@ -285,7 +300,7 @@ progress {
     }
     .midLeft {
         display: none;
-        background-color: white;
+        background-color: whitesmoke;
         width: 50px;
         height: 300px;
         position: absolute;
