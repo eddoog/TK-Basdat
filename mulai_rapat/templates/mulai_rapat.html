@@ -14,19 +14,18 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 {% endblock meta %} 
-
 {% block content %}
 <div class="container mt-5">
     <table class="table table-bordered">
-      <thead>
+      <thead class="bg-danger text-white">
         <tr>
-          <th colspan="5" scope="colgroup">PILIH PERTANDINGAN</th>
+          <th colspan="5" scope="colgroup" style="text-align: center;">PILIH PERTANDINGAN</th>
         </tr>
         <tr>
-          <th scope="col">Tim Berbanding</th>
-          <th scope="col">Stadium</th>
-          <th scope="col">Tanggal dan Waktu</th>
-          <th scope="col">Action</th>
+          <th scope="col" style="text-align: center;">Tim Berbanding</th>
+          <th scope="col" style="text-align: center;">Stadium</th>
+          <th scope="col" style="text-align: center;">Tanggal dan Waktu</th>
+          <th scope="col" style="text-align: center;">Action</th>
         </tr>
       </thead>
       <tbody>
@@ -49,6 +48,11 @@
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
-
+<style>
+  th {
+    background-color: red;
+    color: white;
+    text-align: center;
+  }
+</style>
 {% endblock content %}
-

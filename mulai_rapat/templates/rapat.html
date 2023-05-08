@@ -1,34 +1,36 @@
-{% extends 'base.html' %} 
-{% load static %} 
+{% extends 'base.html' %}
+{% load static %}
 
 {% block meta %}
+<title>Rapat</title>
 
-<!-- <link href="{% static 'css/authentication.css' %}" rel="stylesheet" />
-<link
-    rel="stylesheet"
-    href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
-    crossorigin="anonymous" -->
-
-  <title>Rapat</title>
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-{% endblock meta %} 
+<!-- Style -->
+<link href="{% static 'css/rapat.css' %}" rel="stylesheet" />
+{% endblock meta %}
 
 {% block content %}
-<div class="container mt-5">
-  <form>
-    <div class="form-group">
-      <label for="match">RAPAT PERTANDINGAN [?] vs [?]</label>
-    <div class="form-group">
-      <label for="rapat">Isi Rapat:</label>
-      <textarea class="form-control" id="rapat" rows="5"></textarea>
+<div class="d-flex align-items-center h-100 pb-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="text-center">
+        <h2 class="green">RAPAT PERTANDINGAN A VS B</h2>
+      </div>
+      <div class="col-md-8 col-md-offset-2">
+        <div class="meeting-form">
+          <form>
+            <div class="form-group text-center">
+            </div>
+            <div class="form-group text-center">
+              <label for="rapat" class="font-weight-bold">Isi Rapat:</label>
+              <textarea class="form-control" id="rapat" rows="5"></textarea>
+            </div>
+            <div class="text-center">
+              <button type="submit" class="button">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
+  </div>
 </div>
-<!-- Bootstrap JavaScript -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-
 {% endblock content %}

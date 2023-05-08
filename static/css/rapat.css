@@ -1,0 +1,66 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+html,
+body {
+    font-family: 'Montserrat', sans-serif;
+    height: 100%;
+}
+
+.green {
+    color: #e4450b;
+}
+
+h2 {
+    font-weight: bold;
+}
+
+
+form {
+    background-size: 250% 250%;
+    margin-top: 45px;
+    box-shadow: -5px 10px 20px rgba(0,0,0,.3);
+    margin-bottom: 50px;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+form label, form td {
+    color: #e4450b;
+    vertical-align: middle;
+}
+
+table {
+    color:white;
+}
+
+table tbody {
+    font-size: 16px;
+}
+
+.table-striped>tbody>tr:nth-of-type(odd)>* {
+    color: #e4450b;
+}
+
+td button {
+    color: #ffffff;
+    background-color: #2fb99d;
+    border-radius: 1.2rem;
+    border:none;
+    padding: 0.5rem 0.8rem;
+    cursor:pointer;
+}
+
+button {
+    color: #ffffff;
+    background-color: #e4450b;
+    font-weight: 200;
+    border-radius: 2.5rem;
+    border:none;
+    padding: 0.5rem 1rem;
+    cursor:pointer;
+}
+
+button:hover {
+    background-color: #e5683b;
+}
