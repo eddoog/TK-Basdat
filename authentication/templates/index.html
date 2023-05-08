@@ -13,247 +13,250 @@
 {% endblock meta %} 
 
 {% block content %}
-<div class="body-container" id="container">
-    <div class="form-container sign-up-container">
-        <form action="#" data-multistep>
-            <h1>Create Account</h1>
-            <div class="step" data-step>
-                <span>Use your credentials for registration</span>
-                <input type="email" placeholder="Email" name="email" required />
+{% include 'navbar.html' %}
+<div class="bodyall">
+    <div class="body-container" id="container">
+        <div class="form-container sign-up-container">
+            <form action="#" data-multistep>
+                <h1 class="header1">Create Account</h1>
+                <div class="step" data-step>
+                    <span class="spantil">Use your credentials for registration</span>
+                    <input type="email" placeholder="Email" name="email" required />
+                    <input type="text" placeholder="Username" name="username" required />
+                    <input
+                        type="password"
+                        placeholder="Password"
+                        name="password"
+                        required
+                    />
+                    <div
+                        class="d-flex flex-row justify-content-center align-items-center gap-3"
+                    >
+                        <div
+                            class="form-check justify-content-center align-items-center d-flex gap-2"
+                        >
+                            <input
+                                class="form-check-input"
+                                type="radio"
+                                name="role"
+                                value="Penonton"
+                                id="penontonRadio"
+                                required
+                            />
+                            <label
+                                class="form-check-label text-center"
+                                for="penontonRadio"
+                            >
+                                Penonton
+                            </label>
+                        </div>
+                        <div
+                            class="form-check justify-content-center align-items-center d-flex gap-2"
+                        >
+                            <input
+                                class="form-check-input"
+                                type="radio"
+                                name="role"
+                                value="Manager"
+                                id="managerRadio"
+                                required
+                            />
+                            <label
+                                class="form-check-label text-center"
+                                for="managerRadio"
+                            >
+                                Manager
+                            </label>
+                        </div>
+                        <div
+                            class="form-check justify-content-center align-items-center d-flex gap-2"
+                        >
+                            <input
+                                class="form-check-input"
+                                type="radio"
+                                name="role"
+                                value="Panitia"
+                                id="panitiaRadio"
+                                required
+                            />
+                            <label
+                                class="form-check-label text-center"
+                                for="panitiaRadio"
+                            >
+                                Panitia
+                            </label>
+                        </div>
+                    </div>
+                    <button type="button" data-next class="buton life">Next</button>
+                </div>
+                <div class="step" data-step>
+                    <span class="spantil">Add Info</span>
+                    <input
+                        type="text"
+                        placeholder="Nama Depan"
+                        name="namaDepan"
+                        required
+                    />
+                    <input
+                        type="text"
+                        placeholder="Nama Belakang"
+                        name="namaBelakang"
+                        required
+                    />
+                    <input
+                        type="text"
+                        placeholder="Nomor HP"
+                        name="nomorHP"
+                        required
+                    />
+                    <input
+                        type="text"
+                        placeholder="Alamat"
+                        name="alamat"
+                        required
+                    />
+                    <div class="d-flex justify-content-center gap-2">
+                        <button type="button" data-previous class="buton life">
+                            Previous
+                        </button>
+                        <button type="button" data-next class="buton life">Next</button>
+                    </div>
+                </div>
+                <div class="step" data-step>
+                    <span  class="spantil">Choose status or/and Position</span>
+                    <div
+                        class="d-flex flex-row justify-content-center align-items-center gap-3 flex-wrap"
+                    >
+                        <div
+                            class="form-check justify-content-center align-items-center d-flex gap-2"
+                        >
+                            <input
+                                class="form-check-input"
+                                type="radio"
+                                name="status"
+                                value="Mahasiswa"
+                                id="mahasiswaRadio"
+                                required
+                            />
+                            <label
+                                class="form-check-label text-center"
+                                for="mahasiswaRadio"
+                            >
+                                Mahasiswa
+                            </label>
+                        </div>
+                        <div
+                            class="form-check justify-content-center align-items-center d-flex gap-2"
+                        >
+                            <input
+                                class="form-check-input"
+                                type="radio"
+                                name="status"
+                                value="Dosen"
+                                id="dosenRadio"
+                                required
+                            />
+                            <label
+                                class="form-check-label text-center"
+                                for="dosenRadio"
+                            >
+                                Dosen
+                            </label>
+                        </div>
+                        <div
+                            class="form-check justify-content-center align-items-center d-flex gap-2"
+                        >
+                            <input
+                                class="form-check-input"
+                                type="radio"
+                                name="status"
+                                value="Tendik"
+                                id="tendikRadio"
+                                required
+                            />
+                            <label
+                                class="form-check-label text-center"
+                                for="tendikRadio"
+                            >
+                                Tendik
+                            </label>
+                        </div>
+                        <div
+                            class="form-check justify-content-center align-items-center d-flex gap-2"
+                        >
+                            <input
+                                class="form-check-input"
+                                type="radio"
+                                name="status"
+                                value="Alumni"
+                                id="alumniRadio"
+                                required
+                            />
+                            <label
+                                class="form-check-label text-center"
+                                for="alumniRadio"
+                            >
+                                Alumni
+                            </label>
+                        </div>
+                        <div
+                            class="form-check justify-content-center align-items-center d-flex gap-2"
+                        >
+                            <input
+                                class="form-check-input"
+                                type="radio"
+                                name="status"
+                                value="Umum"
+                                id="umumRadio"
+                                required
+                            />
+                            <label
+                                class="form-check-label text-center"
+                                for="umumRadio"
+                            >
+                                Umum
+                            </label>
+                        </div>
+                    </div>
+                    <input
+                        type="text"
+                        placeholder="Jabatan"
+                        name="jabatan"
+                        class="hide"
+                    />
+                    <div class="d-flex justify-content-center gap-2">
+                        <button type="button" data-previous class="buton life">
+                            Previous
+                        </button>
+                        <button type="submit" class="buton life">Sign Up</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form action="#" data-login>
+                <h1 class="header1">Sign in</h1>
+                <span  class="spantil">Use your credentials to log in</span>
                 <input type="text" placeholder="Username" name="username" required />
-                <input
-                    type="password"
-                    placeholder="Password"
-                    name="password"
-                    required
-                />
-                <div
-                    class="d-flex flex-row justify-content-center align-items-center gap-3"
-                >
-                    <div
-                        class="form-check justify-content-center align-items-center d-flex gap-2"
-                    >
-                        <input
-                            class="form-check-input"
-                            type="radio"
-                            name="role"
-                            value="Penonton"
-                            id="penontonRadio"
-                            required
-                        />
-                        <label
-                            class="form-check-label text-center"
-                            for="penontonRadio"
-                        >
-                            Penonton
-                        </label>
-                    </div>
-                    <div
-                        class="form-check justify-content-center align-items-center d-flex gap-2"
-                    >
-                        <input
-                            class="form-check-input"
-                            type="radio"
-                            name="role"
-                            value="Manager"
-                            id="managerRadio"
-                            required
-                        />
-                        <label
-                            class="form-check-label text-center"
-                            for="managerRadio"
-                        >
-                            Manager
-                        </label>
-                    </div>
-                    <div
-                        class="form-check justify-content-center align-items-center d-flex gap-2"
-                    >
-                        <input
-                            class="form-check-input"
-                            type="radio"
-                            name="role"
-                            value="Panitia"
-                            id="panitiaRadio"
-                            required
-                        />
-                        <label
-                            class="form-check-label text-center"
-                            for="panitiaRadio"
-                        >
-                            Panitia
-                        </label>
-                    </div>
+                <input type="password" placeholder="Password" name="password" required />
+                <button type="submit" class="buton life">Sign In</button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1 class="header1">Welcome Back!</h1>
+                    <p class="paraf">
+                        To keep connected with us please login with your personal
+                        info
+                    </p>
+                    <button class="buton ghost" id="signIn">Sign In</button>
                 </div>
-                <button type="button" data-next class="life">Next</button>
-            </div>
-            <div class="step" data-step>
-                <span>Add Info</span>
-                <input
-                    type="text"
-                    placeholder="Nama Depan"
-                    name="namaDepan"
-                    required
-                />
-                <input
-                    type="text"
-                    placeholder="Nama Belakang"
-                    name="namaBelakang"
-                    required
-                />
-                <input
-                    type="text"
-                    placeholder="Nomor HP"
-                    name="nomorHP"
-                    required
-                />
-                <input
-                    type="text"
-                    placeholder="Alamat"
-                    name="alamat"
-                    required
-                />
-                <div class="d-flex justify-content-center gap-2">
-                    <button type="button" data-previous class="life">
-                        Previous
-                    </button>
-                    <button type="button" data-next class="life">Next</button>
+                <div class="overlay-panel overlay-right">
+                    <h1 class="header1">Hello, Friend!</h1>
+                    <p class="paraf">Enter your personal details and start journey with us</p>
+                    <button class="buton ghost" id="signUp">Sign Up</button>
                 </div>
-            </div>
-            <div class="step" data-step>
-                <span>Choose status or/and Position</span>
-                <div
-                    class="d-flex flex-row justify-content-center align-items-center gap-3 flex-wrap"
-                >
-                    <div
-                        class="form-check justify-content-center align-items-center d-flex gap-2"
-                    >
-                        <input
-                            class="form-check-input"
-                            type="radio"
-                            name="status"
-                            value="Mahasiswa"
-                            id="mahasiswaRadio"
-                            required
-                        />
-                        <label
-                            class="form-check-label text-center"
-                            for="mahasiswaRadio"
-                        >
-                            Mahasiswa
-                        </label>
-                    </div>
-                    <div
-                        class="form-check justify-content-center align-items-center d-flex gap-2"
-                    >
-                        <input
-                            class="form-check-input"
-                            type="radio"
-                            name="status"
-                            value="Dosen"
-                            id="dosenRadio"
-                            required
-                        />
-                        <label
-                            class="form-check-label text-center"
-                            for="dosenRadio"
-                        >
-                            Dosen
-                        </label>
-                    </div>
-                    <div
-                        class="form-check justify-content-center align-items-center d-flex gap-2"
-                    >
-                        <input
-                            class="form-check-input"
-                            type="radio"
-                            name="status"
-                            value="Tendik"
-                            id="tendikRadio"
-                            required
-                        />
-                        <label
-                            class="form-check-label text-center"
-                            for="tendikRadio"
-                        >
-                            Tendik
-                        </label>
-                    </div>
-                    <div
-                        class="form-check justify-content-center align-items-center d-flex gap-2"
-                    >
-                        <input
-                            class="form-check-input"
-                            type="radio"
-                            name="status"
-                            value="Alumni"
-                            id="alumniRadio"
-                            required
-                        />
-                        <label
-                            class="form-check-label text-center"
-                            for="alumniRadio"
-                        >
-                            Alumni
-                        </label>
-                    </div>
-                    <div
-                        class="form-check justify-content-center align-items-center d-flex gap-2"
-                    >
-                        <input
-                            class="form-check-input"
-                            type="radio"
-                            name="status"
-                            value="Umum"
-                            id="umumRadio"
-                            required
-                        />
-                        <label
-                            class="form-check-label text-center"
-                            for="umumRadio"
-                        >
-                            Umum
-                        </label>
-                    </div>
-                </div>
-                <input
-                    type="text"
-                    placeholder="Jabatan"
-                    name="jabatan"
-                    class="hide"
-                />
-                <div class="d-flex justify-content-center gap-2">
-                    <button type="button" data-previous class="life">
-                        Previous
-                    </button>
-                    <button type="submit" class="life">Sign Up</button>
-                </div>
-            </div>
-        </form>
-    </div>
-    <div class="form-container sign-in-container">
-        <form action="#" data-login>
-            <h1>Sign in</h1>
-            <span>Use your credentials to log in</span>
-            <input type="text" placeholder="Username" name="username" required />
-            <input type="password" placeholder="Password" name="password" required />
-            <button type="submit" class="life">Sign In</button>
-        </form>
-    </div>
-    <div class="overlay-container">
-        <div class="overlay">
-            <div class="overlay-panel overlay-left">
-                <h1>Welcome Back!</h1>
-                <p>
-                    To keep connected with us please login with your personal
-                    info
-                </p>
-                <button class="ghost" id="signIn">Sign In</button>
-            </div>
-            <div class="overlay-panel overlay-right">
-                <h1>Hello, Friend!</h1>
-                <p>Enter your personal details and start journey with us</p>
-                <button class="ghost" id="signUp">Sign Up</button>
             </div>
         </div>
     </div>

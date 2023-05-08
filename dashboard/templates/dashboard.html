@@ -3,125 +3,125 @@
 
 {% block meta %}
 <title>Dashboard</title>
-{% endblock meta %} 
-{% block css %} 
 <link href="{% static 'css/dashboard.css' %}" rel="stylesheet" />
-{% endblock css %} 
+{% endblock meta %} 
 
 {% block content %}
-<div class="body-container">
-    <section id="mid">
-        {% include 'sidebar.html' %}
-        <div class="midMid">
-            <div class="midMid1">
-                <div class="topHead">
-                    <h1>Dashboard</h1>
-                    <p>Welcome The App!</p>
+<div class="bodyall">
+    <div class="body-container no-padding no-margin">
+        <section id="mid">
+            {% include 'sidebar.html' %}
+            <div class="midMid">
+                <div class="midMid1">
+                    <div class="topHead">
+                        <h1 class="no-padding no-margin">Dashboard</h1>
+                        <p class="no-padding no-margin">Welcome The App!</p>
+                    </div>
+                    <ul class="ulul no-padding no-margin">
+                        <li class="listbro">
+                            <h3 class="no-padding no-margin">Alfredo</h3>
+                            <p class="no-padding no-margin">Nama Depan</p>
+                        </li>
+                        <li class="listbro">
+                            <h3 class="no-padding no-margin">Alumni</h3>
+                            <p class="no-padding no-margin">Status</p>
+                        </li>
+                    </ul>
                 </div>
-                <ul>
-                    <li>
-                        <h3>Alfredo</h3>
-                        <p>Nama Depan</p>
+                <div class="midMid2">
+                    <ul class="ulul no-padding no-margin" id="option">
+                        <li class="inactive">ALL</li>
+                        <hr />
+                        <li class="activeMid">DAFTAR RAPAT</li>
+                    </ul>
+                </div>
+                <div class="midMid3">
+                    <div class="progressz">
+                        <p class="no-padding no-margin">Completed</p>
+                        <h3 class="no-padding no-margin">Rapat 1</h3>
+                        <p class="no-padding no-margin">Perwakilan Panitia: Alfredo</p>
+                        <a class="linkbro no-padding no-margin" href="#">History</a><br />
+                        <progress class="no-padding no-margin" value="100" max="100"></progress>
+                        <h4 class="no-padding no-margin">TIME: OCT 27, 2022</h4>
+                    </div>
+                    <div class="progressz no-padding no-margin">
+                        <p class="no-padding no-margin">Completed</p>
+                        <h3 class="no-padding no-margin">Rapat 2</h3>
+                        <p class="no-padding no-margin">Perwakilan Panitia: Alfredo</p>
+                        <a class="linkbro no-padding no-margin" href="#">History</a><br />
+                        <progress class="no-padding no-margin" value="100" max="100"></progress>
+                        <h4 class="no-padding no-margin">TIME: SEPT 10, 2022</h4>
+                    </div>
+                    <div class="progressz no-padding no-margin">
+                        <p class="no-padding no-margin">Completed</p>
+                        <h3 class="no-padding no-margin">Rapat 3</h3>
+                        <p class="no-padding no-margin">Perwakilan Panitia: Alfredo</p>
+                        <a class="linkbro no-padding no-margin" href="#">History</a><br />
+                        <progress class="no-padding no-margin" value="100" max="100"></progress>
+                        <h4 class="no-padding no-margin">TIME: AUG 5, 2022</h4>
+                    </div>
+                    <div class="progressz no-padding no-margin">
+                        <p class="no-padding no-margin">Completed</p>
+                        <h3 class="no-padding no-margin">Rapat 4</h3>
+                        <p>Perwakilan Panitia: Alfredo</p>
+                        <a class="linkbro no-padding no-margin" href="#">History</a><br />
+                        <progress class="no-padding no-margin" value="100" max="100"></progress>
+                        <h4 class="no-padding no-margin">TIME: NOV 30, 2022</h4>
+                    </div>
+                    <div class="progressz team no-padding no-margin">
+                        <p class="no-padding no-margin">X Member</p>
+                        <h3 class="no-padding no-margin">Nama Tim</h3>
+                        <p class="no-padding no-margin">Manager: Alfredo</p>
+                        <a class="linkbro no-padding no-margin" href="#">Details</a><br />
+                        <h4 class="no-padding no-margin">Nama Universitas</h4>
+                    </div>
+                    <div class="progressz match no-padding no-margin">
+                        <p class="no-padding no-margin">Completed</p>
+                        <h3 class="no-padding no-margin">X VS Y</h3>
+                        <p class="no-padding no-margin">Winner: X</p>
+                        <a class="linkbro no-padding no-margin" href="#">Details</a><br />
+                        <h4 class="no-padding no-margin">TIME: OCT-27, 2022 - Sept 10, 2022</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="midRight">
+                <h2 class="">Personal Information</h2>
+                <ul class="ulul no-padding no-margin">
+                    <li class="listbro">
+                        <h3 class="no-padding no-margin">Nama Depan</h3>
+                        <p class="no-padding no-margin">Alfredo</p>
                     </li>
-                    <li>
-                        <h3>Alumni</h3>
-                        <p>Status</p>
+                    <li class="listbro">
+                        <h3 class="no-padding no-margin">Nama Belakang</h3>
+                        <p class="no-padding no-margin">Austin</p>
+                    </li>
+                    <li class="listbro">
+                        <h3 class="no-padding no-margin">Nomor HP</h3>
+                        <p class="no-padding no-margin">012345678910</p>
+                    </li>
+                    <li class="listbro">
+                        <h3 class="no-padding no-margin">Email</h3>
+                        <p class="no-padding no-margin">alfredo.austin@ui.ac.id</p>
+                    </li>
+                    <li class="listbro">
+                        <h3 class="no-padding no-margin">Alamat</h3>
+                        <p class="no-padding no-margin">
+                            Jl Jend A Yani 2 Perk Pulomas Satu Ged 5 Lt 2 Ruang 3,
+                            Kayu Putih, Pulo Gadun, Jakarta,
+                        </p>
+                    </li>
+                    <li class="listbro">
+                        <h3 class="no-padding no-margin">Status</h3>
+                        Mahasiswa
+                    </li>
+                    <li class="listbro">
+                        <h3 class="no-padding no-margin">Jabatan</h3>
+                        <p class="no-padding no-margin">Ketua IT Dev</p>
                     </li>
                 </ul>
             </div>
-            <div class="midMid2">
-                <ul id="option">
-                    <li class="inactive">ALL</li>
-                    <hr />
-                    <li class="activeMid">DAFTAR RAPAT</li>
-                </ul>
-            </div>
-            <div class="midMid3">
-                <div class="progress">
-                    <p>Completed</p>
-                    <h3>Rapat 1</h3>
-                    <p>Perwakilan Panitia: Alfredo</p>
-                    <a href="#">History</a><br />
-                    <progress value="100" max="100"></progress>
-                    <h4>TIME: OCT 27, 2022</h4>
-                </div>
-                <div class="progress">
-                    <p>Completed</p>
-                    <h3>Rapat 2</h3>
-                    <p>Perwakilan Panitia: Alfredo</p>
-                    <a href="#">History</a><br />
-                    <progress value="100" max="100"></progress>
-                    <h4>TIME: SEPT 10, 2022</h4>
-                </div>
-                <div class="progress">
-                    <p>Completed</p>
-                    <h3>Rapat 3</h3>
-                    <p>Perwakilan Panitia: Alfredo</p>
-                    <a href="#">History</a><br />
-                    <progress value="100" max="100"></progress>
-                    <h4>TIME: AUG 5, 2022</h4>
-                </div>
-                <div class="progress">
-                    <p>Completed</p>
-                    <h3>Rapat 4</h3>
-                    <p>Perwakilan Panitia: Alfredo</p>
-                    <a href="#">History</a><br />
-                    <progress value="100" max="100"></progress>
-                    <h4>TIME: NOV 30, 2022</h4>
-                </div>
-                <!-- <div class="progress team">
-                    <p>X Member</p>
-                    <h3>Nama Tim</h3>
-                    <p>Manager: Alfredo</p>
-                    <a href="#">Details</a><br />
-                    <h4>Nama Universitas</h4>
-                </div>
-                <div class="progress match">
-                    <p>Completed</p>
-                    <h3>X VS Y</h3>
-                    <p>Winner: X</p>
-                    <a href="#">Details</a><br />
-                    <h4>TIME: OCT-27, 2022 - Sept 10, 2022</h4>
-                </div> -->
-            </div>
-        </div>
-        <div class="midRight">
-            <h2>Personal Information</h2>
-            <ul>
-                <li>
-                    <h3>Nama Depan</h3>
-                    <p>Alfredo</p>
-                </li>
-                <li>
-                    <h3>Nama Belakang</h3>
-                    <p>Austin</p>
-                </li>
-                <li>
-                    <h3>Nomor HP</h3>
-                    <p>012345678910</p>
-                </li>
-                <li>
-                    <h3>Email</h3>
-                    <p>alfredo.austin@ui.ac.id</p>
-                </li>
-                <li>
-                    <h3>Alamat</h3>
-                    <p>
-                        Jl Jend A Yani 2 Perk Pulomas Satu Ged 5 Lt 2 Ruang 3,
-                        Kayu Putih, Pulo Gadun, Jakarta,
-                    </p>
-                </li>
-                <li>
-                    <h3>Status</h3>
-                    Mahasiswa
-                </li>
-                <li>
-                    <h3>Jabatan</h3>
-                    <p>Ketua IT Dev</p>
-                </li>
-            </ul>
-        </div>
-    </section>
+        </section>
+    </div>
 </div>
 <script src="{% static 'js/dashboard.js' %}"></script>
 {% endblock content %}

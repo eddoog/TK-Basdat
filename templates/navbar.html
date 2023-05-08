@@ -1,0 +1,32 @@
+{% load static %} 
+
+{% block content %}
+<header class="header">
+    <nav class="navbar navbar-expand-lg px-4">
+        <a class="navbar-brand ms-auto">D02</a>
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link me-auto" href="#">Dashboard</a>
+                <a class="nav-link me-auto" href="#">Rapat</a>
+                <a class="nav-link me-auto" href="#"
+                    >Manage Pertandingan</a
+                >
+                <button class="nav-link ms-auto logout-button">
+                    Log Out
+                </button>
+            </div>
+        </div>
+    </nav>
+</header>
+{% endblock content %}
