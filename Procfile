@@ -1,0 +1,1 @@
+web: gunicorn TK.wsgi --log-file -
