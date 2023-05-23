@@ -25,8 +25,10 @@ SECRET_KEY = 'django-insecure-)s9tajzqvc6&d)qa7u31(mt0hd79r01t^#1nuvs&_z_!pnc3(u
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
+APP_NAME = 'uleague-d02'
+CSRF_TRUSTED_ORIGINS = [f'https://{APP_NAME}.up.railway.app']
 
 # Application definition
 
@@ -80,11 +82,17 @@ WSGI_APPLICATION = 'TK.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+DATABASE_URL = 'postgresql://postgres:Bu7rxUgIh1WyT9N6Rnnt@containers-us-west-179.railway.app:6087/railway'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'Bu7rxUgIh1WyT9N6Rnnt',
+        'HOST': 'containers-us-west-179.railway.app',
+        'PORT': '6087',
+        'CONN_MAX_AGE': 1000
     }
 }
 
