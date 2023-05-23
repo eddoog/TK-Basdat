@@ -1,7 +1,4 @@
-{% extends 'base.html' %} 
-{% load static %} 
-
-{% block meta %}
+{% extends 'base.html' %} {% load static %} {% block meta %}
 <title>Authentication</title>
 <link href="{% static 'css/authentication.css' %}" rel="stylesheet" />
 <link
@@ -10,19 +7,28 @@
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
     crossorigin="anonymous"
 />
-{% endblock meta %} 
-
-{% block content %}
-{% include 'navbar.html' %}
+{% endblock meta %} {% block content %}
 <div class="bodyall">
     <div class="body-container" id="container">
         <div class="form-container sign-up-container">
             <form action="#" data-multistep>
                 <h1 class="header1">Create Account</h1>
                 <div class="step" data-step>
-                    <span class="spantil">Use your credentials for registration</span>
-                    <input type="email" placeholder="Email" name="email" required />
-                    <input type="text" placeholder="Username" name="username" required />
+                    <span class="spantil"
+                        >Use your credentials for registration</span
+                    >
+                    <input
+                        type="email"
+                        placeholder="Email"
+                        name="email"
+                        required
+                    />
+                    <input
+                        type="text"
+                        placeholder="Username"
+                        name="username"
+                        required
+                    />
                     <input
                         type="password"
                         placeholder="Password"
@@ -87,7 +93,9 @@
                             </label>
                         </div>
                     </div>
-                    <button type="button" data-next class="buton life">Next</button>
+                    <button type="button" data-next class="buton life">
+                        Next
+                    </button>
                 </div>
                 <div class="step" data-step>
                     <span class="spantil">Add Info</span>
@@ -119,11 +127,13 @@
                         <button type="button" data-previous class="buton life">
                             Previous
                         </button>
-                        <button type="button" data-next class="buton life">Next</button>
+                        <button type="button" data-next class="buton life">
+                            Next
+                        </button>
                     </div>
                 </div>
                 <div class="step" data-step>
-                    <span  class="spantil">Choose status or/and Position</span>
+                    <span class="spantil">Choose status or/and Position</span>
                     <div
                         class="d-flex flex-row justify-content-center align-items-center gap-3 flex-wrap"
                     >
@@ -228,7 +238,9 @@
                         <button type="button" data-previous class="buton life">
                             Previous
                         </button>
-                        <button type="submit" class="buton life">Sign Up</button>
+                        <button type="submit" class="buton life">
+                            Sign Up
+                        </button>
                     </div>
                 </div>
             </form>
@@ -236,9 +248,19 @@
         <div class="form-container sign-in-container">
             <form action="#" data-login>
                 <h1 class="header1">Sign in</h1>
-                <span  class="spantil">Use your credentials to log in</span>
-                <input type="text" placeholder="Username" name="username" required />
-                <input type="password" placeholder="Password" name="password" required />
+                <span class="spantil">Use your credentials to log in</span>
+                <input
+                    type="text"
+                    placeholder="Username"
+                    name="username"
+                    required
+                />
+                <input
+                    type="password"
+                    placeholder="Password"
+                    name="password"
+                    required
+                />
                 <button type="submit" class="buton life">Sign In</button>
             </form>
         </div>
@@ -247,14 +269,16 @@
                 <div class="overlay-panel overlay-left">
                     <h1 class="header1">Welcome Back!</h1>
                     <p class="paraf">
-                        To keep connected with us please login with your personal
-                        info
+                        To keep connected with us please login with your
+                        personal info
                     </p>
                     <button class="buton ghost" id="signIn">Sign In</button>
                 </div>
                 <div class="overlay-panel overlay-right">
                     <h1 class="header1">Hello, Friend!</h1>
-                    <p class="paraf">Enter your personal details and start journey with us</p>
+                    <p class="paraf">
+                        Enter your personal details and start journey with us
+                    </p>
                     <button class="buton ghost" id="signUp">Sign Up</button>
                 </div>
             </div>
