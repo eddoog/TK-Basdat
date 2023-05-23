@@ -1,1 +1,1 @@
-web: gunicorn TK.wsgi --log-file -
+web: python manage.py collectstatic && gunicorn TK.wsgi --log-file -
