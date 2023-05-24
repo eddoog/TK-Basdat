@@ -17,38 +17,40 @@
                 <h2 class="green">Pesan Stadium</h2>
             </div>
             <div class="col-md-8 col-md-offset-2">
-                <form class="p-5">
+                <form class="p-5" method="POST">
+                    {% csrf_token %}
                     <div class="form-group row pb-4">
                         <label for="stadium" class="col-sm-2 col-form-label">Stadium</label>
                         <div class="col-sm-10">
-                            <select id="stadium" class="form-select">
+                            <select id="stadium" name="stadium" class="form-select">
                                 <option selected>Pilih stadium yang tersedia</option>
-                                <option value="GBK">Gelora Bung Karno</option>
-                                <option value="GBLA">Gelora Bandung Lautan Api</option>
-                                <option value="JIS">Jakarta International Stadium</option>
+                                {% for stadium in stadiums %}
+                                <option value="{{stadium.0}}">{{stadium.1}}</option>
+                                {% endfor %}
                             </select>
                         </div>
                     </div>
                     <div class="row form-group">
                         <label for="tanggal" class="col-sm-2 col-form-label">Date</label>
                         <div class="col-sm-10">
-                            <input type="date" class="form-control" name="date-field" id="tanggal" />
+                            <input type="date" class="form-control" name="tanggal" id="tanggal" />
                         </div>
                     </div>
-                </form>
-                <div class="d-flex justify-content-center me-4 mt-5">
-                    <a href="/peminjaman_stadium/pesan/pilih_waktu">
-                        <button class="button">
+                    <div class="d-flex justify-content-center me-4 mt-5">
+                        <button type="submit">
                             <span class="pe-2">Pilih waktu peminjaman</span>
                             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M6.39205 11.2102L5.36932 10.1988L8.92045 6.64768H0V5.17041H8.92045L5.36932 1.62496L6.39205 0.60791L11.6932 5.90905L6.39205 11.2102Z" fill="currentColor"></path>
                             </svg>
                         </button>
-                    </a>
-                </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 </div>
 
 {% endblock content %}
+
+{% block script %}
+{% endblock script %}
