@@ -44,10 +44,12 @@ INSTALLED_APPS = [
     'mulai_rapat',
     'pembelian_tiket',
     'mulai_pertandingan',
-    'manajer',
+    'peminjaman_stadium',
     'dashboard',
     'manage_pertandingan',
     'pembuatan_pertandingan',
+    'list_pertandingan',
+    'history_rapat',
 ]
 
 MIDDLEWARE = [
