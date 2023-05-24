@@ -1,50 +1,71 @@
-{% extends 'base.html' %}
 {% load static %}
+<!DOCTYPE html>
 
-{% block meta %}
-<title>List Pertandingan</title>
+<html>
+   
+  <head>
+    <title>List Pertandingan</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <style>
+        p {
+            text-align: center;
+        }
 
-<!-- Style -->
-<link href="{% static 'css/list-pertandingan.css' %}" rel="stylesheet" />
-{% endblock meta %}
+        h2 {
+            font-size: 12px;
+            font-weight: bold;
+            color: black;
+        }
+        
+        label{
+            font-size: 12px;
+            font-weight: bold;
+            color: black;
+        }
 
-{% block content %}
-<div class="d-flex align-items-center h-100 pb-5">
-<div class="container">
-    <div class="row justify-content-center">
-            <div class="d-flex justify-content-center me-4">
-                <h2 class="orange">List Pertandingan</h2>
-            </div>
-        <div class="col-md-8 col-md-offset-2">
-            <div class="pertandingan-table">
-                <table class="table table-borderless table-striped">
-                    <thead>
-                    <th>Tim Bertanding</th>
-                    <th>Stadium</th>
-                    <th>Tanggal dan Waktu</th>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>A vs B</td>
-                        <td>Gelora Bung Karno</td>
-                        <td>5 Juli 2023, 07.00 - 09.00</td>
-                    </tr>
-                    <tr>
-                        <td>C vs D</td>
-                        <td>Gelora Bung Karno</td>
-                        <td>7 Juli 2023, 13.00 - 15.00</td>
-                    </tr>
-                    <tr>
-                        <td>E vs F</td>
-                        <td>Gelora Bandung Lautan Api</td>
-                        <td>10 Juli 2023, 13.00 - 15.00</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+        .card{
+            border-radius: 10px;
+            height: auto;
+            width: auto;
+        }
+        
+        .a{
+            font-size: 30px;
+            font-weight: bold;
+            color: black;
+            text-align: center;
+        }
+
+        
+    </style>
+  </head>
+  <body>
+    <div class="p-3 mt-3 ml-2 mb-0 text-dark" style="text-align: center">
+        <h3 class="fw"> Pilih Pertandingan </h3>
+    </div> 
+    
+    <div class="px-5 mt-0 mb-2 mx-5 text-dark" style="font-size: 15px">
+    <table class="table table-striped table-bordered" >
+      <thead class="thead-dark text-light" style="background: #051c2c">
+        <tr>
+          <th>Tim Bertanding</th>
+          <th>Stadium</th>
+          <th>Tanggal dan Waktu</th>
+        </tr>
+      </thead>
+      <tbody>
+          {% for i in data %}
+        <tr>
+          <td>{{i.tim_bertanding}}</td>
+          <td>{{i.nama}}</td>
+          <td>{{i.time}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
     </div>
-</div>
-</div>
-
-{% endblock content %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+  </body>
+  
+</html>
