@@ -44,10 +44,12 @@ INSTALLED_APPS = [
     'mulai_rapat',
     'pembelian_tiket',
     'mulai_pertandingan',
-    'manajer',
+    'peminjaman_stadium',
     'dashboard',
     'manage_pertandingan',
     'pembuatan_pertandingan',
+    'list_pertandingan',
+    'history_rapat',
 ]
 
 MIDDLEWARE = [
@@ -84,7 +86,6 @@ WSGI_APPLICATION = 'TK.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-DATABASE_URL = 'postgresql://postgres:Bu7rxUgIh1WyT9N6Rnnt@containers-us-west-179.railway.app:6087/railway'
 
 DATABASES = {
     'default': {
