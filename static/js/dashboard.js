@@ -18,3 +18,26 @@ window.addEventListener('resize', function () {
         why.style.display = 'none';
     }
 });
+
+function showError(message) {
+    $('#errorMessage').html('');
+    const text = `<p class="text-danger font-bold text-center">${message}</p>`;
+    $(text).appendTo('#errorMessage');
+}
+
+$(document).ready(function () {
+    $('#logoutButton').click(function (e) {
+        console.log('logouting');
+        e.preventDefault();
+        $.ajax({
+            method: 'POST',
+            url: '/dashboard/logout/',
+            success: function (data) {
+                window.location.href = `${window.location.protocol}//${window.location.host}`;
+            },
+            error: function (error) {
+                showError('Cannot logout');
+            },
+        });
+    });
+});

@@ -9,9 +9,10 @@
 />
 {% endblock meta %} {% block content %}
 <div class="bodyall">
+    <div id="errorMessage"></div>
     <div class="body-container" id="container">
         <div class="form-container sign-up-container">
-            <form action="#" data-multistep>
+            <form method="POST" data-multistep id="registerSubmit">
                 <h1 class="header1">Create Account</h1>
                 <div class="step" data-step>
                     <span class="spantil"
@@ -21,18 +22,21 @@
                         type="email"
                         placeholder="Email"
                         name="email"
+                        id="emailRegisterForm"
                         required
                     />
                     <input
                         type="text"
                         placeholder="Username"
                         name="username"
+                        id="usernameRegisterForm"
                         required
                     />
                     <input
                         type="password"
                         placeholder="Password"
                         name="password"
+                        id="passwordRegisterForm"
                         required
                     />
                     <div
@@ -45,7 +49,7 @@
                                 class="form-check-input"
                                 type="radio"
                                 name="role"
-                                value="Penonton"
+                                value="penonton"
                                 id="penontonRadio"
                                 required
                             />
@@ -63,15 +67,15 @@
                                 class="form-check-input"
                                 type="radio"
                                 name="role"
-                                value="Manager"
-                                id="managerRadio"
+                                value="manajer"
+                                id="manajerRadio"
                                 required
                             />
                             <label
                                 class="form-check-label text-center"
-                                for="managerRadio"
+                                for="manajerRadio"
                             >
-                                Manager
+                                Manajer
                             </label>
                         </div>
                         <div
@@ -81,7 +85,7 @@
                                 class="form-check-input"
                                 type="radio"
                                 name="role"
-                                value="Panitia"
+                                value="panitia"
                                 id="panitiaRadio"
                                 required
                             />
@@ -103,24 +107,28 @@
                         type="text"
                         placeholder="Nama Depan"
                         name="namaDepan"
+                        id="namaDepanRegisterForm"
                         required
                     />
                     <input
                         type="text"
                         placeholder="Nama Belakang"
                         name="namaBelakang"
+                        id="namaBelakangRegisterForm"
                         required
                     />
                     <input
                         type="text"
                         placeholder="Nomor HP"
                         name="nomorHP"
+                        id="nomorHPRegisterForm"
                         required
                     />
                     <input
                         type="text"
                         placeholder="Alamat"
                         name="alamat"
+                        id="alamatRegisterForm"
                         required
                     />
                     <div class="d-flex justify-content-center gap-2">
@@ -142,11 +150,10 @@
                         >
                             <input
                                 class="form-check-input"
-                                type="radio"
+                                type="checkbox"
                                 name="status"
-                                value="Mahasiswa"
+                                value="mahasiswa"
                                 id="mahasiswaRadio"
-                                required
                             />
                             <label
                                 class="form-check-label text-center"
@@ -160,11 +167,10 @@
                         >
                             <input
                                 class="form-check-input"
-                                type="radio"
+                                type="checkbox"
                                 name="status"
-                                value="Dosen"
+                                value="dosen"
                                 id="dosenRadio"
-                                required
                             />
                             <label
                                 class="form-check-label text-center"
@@ -178,11 +184,10 @@
                         >
                             <input
                                 class="form-check-input"
-                                type="radio"
+                                type="checkbox"
                                 name="status"
-                                value="Tendik"
+                                value="tendik"
                                 id="tendikRadio"
-                                required
                             />
                             <label
                                 class="form-check-label text-center"
@@ -196,11 +201,10 @@
                         >
                             <input
                                 class="form-check-input"
-                                type="radio"
+                                type="checkbox"
                                 name="status"
-                                value="Alumni"
+                                value="alumni"
                                 id="alumniRadio"
-                                required
                             />
                             <label
                                 class="form-check-label text-center"
@@ -214,11 +218,10 @@
                         >
                             <input
                                 class="form-check-input"
-                                type="radio"
+                                type="checkbox"
                                 name="status"
-                                value="Umum"
+                                value="umum"
                                 id="umumRadio"
-                                required
                             />
                             <label
                                 class="form-check-label text-center"
@@ -232,6 +235,7 @@
                         type="text"
                         placeholder="Jabatan"
                         name="jabatan"
+                        id="jabatanRegisterForm"
                         class="hide"
                     />
                     <div class="d-flex justify-content-center gap-2">
@@ -246,19 +250,21 @@
             </form>
         </div>
         <div class="form-container sign-in-container">
-            <form action="#" data-login>
+            <form method="POST" data-login id="loginSubmit">
                 <h1 class="header1">Sign in</h1>
                 <span class="spantil">Use your credentials to log in</span>
                 <input
                     type="text"
                     placeholder="Username"
                     name="username"
+                    id="usernameLoginForm"
                     required
                 />
                 <input
                     type="password"
                     placeholder="Password"
                     name="password"
+                    id="passwordLoginForm"
                     required
                 />
                 <button type="submit" class="buton life">Sign In</button>

@@ -11,25 +11,6 @@ signInButton.addEventListener('click', () =>
     container.classList.remove('right-panel-active')
 );
 
-const loginForm = document.querySelector('[data-login]');
-
-console.log(loginForm);
-
-loginForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    console.log(e);
-
-    const formData = new FormData(loginForm);
-
-    const data = {};
-    for (const [name, value] of formData) {
-        data[name] = value;
-        console.log(`Name: ${name}, Value: ${value}`);
-    }
-
-    console.log(data);
-});
-
 const multiStepForm = document.querySelector('[data-multistep]');
 const formSteps = [...multiStepForm.querySelectorAll('[data-step]')];
 let currentStep = formSteps.findIndex((step) => {
@@ -80,7 +61,7 @@ const jabatanInput = document.getElementsByName('jabatan')[0];
 
 for (const radio of roleRadios) {
     radio.addEventListener('click', () => {
-        if (radio.value === 'Panitia' && radio.checked) {
+        if (radio.value === 'panitia' && radio.checked) {
             jabatanInput.classList.remove('hide');
             jabatanInput.setAttribute('required', true);
         } else {
@@ -90,19 +71,95 @@ for (const radio of roleRadios) {
     });
 }
 
-multiStepForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const formData = new FormData(multiStepForm);
-    const data = {};
-    for (const [name, value] of formData) {
-        if (
-            name === 'jabatan' &&
-            document.querySelector('input[name="role"]:checked').value !==
-                'Panitia'
-        ) {
-            continue;
+function showError(message) {
+    $('#errorMessage').html('');
+    const text = `<p class="text-danger font-bold text-center">${message}</p>`;
+    $(text).appendTo('#errorMessage');
+}
+
+$(document).ready(function () {
+    $('#loginSubmit').submit(function (e) {
+        e.preventDefault();
+        var username = $('#usernameLoginForm').val();
+        var password = $('#passwordLoginForm').val();
+        if (username === '' || password === '') {
+            showError(
+                'Data yang diisikan belum lengkap, silakan lengkapi data terlebih dahulu.'
+            );
+        } else {
+            $.ajax({
+                method: 'POST',
+                url: '',
+                data: {
+                    username: username,
+                    password: password,
+                    type: 'login',
+                },
+                success: function (data) {
+                    window.location.href = `${window.location.protocol}//${window.location.host}/dashboard/`;
+                },
+                error: function (error) {
+                    showError('Email atau password tidak valid');
+                },
+            });
         }
-        data[name] = value;
-    }
-    console.log(data);
+    });
+
+    $('#registerSubmit').submit(function (e) {
+        e.preventDefault();
+        var email = $('#emailRegisterForm').val();
+        var username = $('#usernameRegisterForm').val();
+        var password = $('#passwordRegisterForm').val();
+        var namaDepan = $('#namaDepanRegisterForm').val();
+        var namaBelakang = $('#namaBelakangRegisterForm').val();
+        var role = $('input[name="role"]:checked').val();
+        var jabatan = $('#jabatanRegisterForm').val();
+        var status = $('input[name="status"]:checked')
+            .serializeArray()
+            .map(function (item) {
+                return item.value;
+            });
+        var alamat = $('#alamatRegisterForm').val();
+        var nomorHP = $('#nomorHPRegisterForm').val();
+        if (
+            email === '' ||
+            username === '' ||
+            password === '' ||
+            namaDepan === '' ||
+            namaBelakang === '' ||
+            role === '' ||
+            status.length === 0 ||
+            alamat === '' ||
+            nomorHP === ''
+        ) {
+            showError(
+                'Data yang diisikan belum lengkap, silakan lengkapi data terlebih dahulu.'
+            );
+        } else {
+            $.ajax({
+                method: 'POST',
+                url: '',
+                data: {
+                    username: username,
+                    password: password,
+                    email: email,
+                    namaDepan: namaDepan,
+                    namaBelakang: namaBelakang,
+                    role: role,
+                    jabatan: jabatan,
+                    status: status,
+                    alamat: alamat,
+                    nomorHP: nomorHP,
+                    type: 'register',
+                },
+                success: function (data) {
+                    window.location.href = `${window.location.protocol}//${window.location.host}/dashboard/`;
+                },
+                error: function (xhr) {
+                    var error = xhr.responseJSON.error;
+                    showError(error);
+                },
+            });
+        }
+    });
 });
