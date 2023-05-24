@@ -103,12 +103,9 @@ DATABASE_URL = 'postgresql://postgres:Bu7rxUgIh1WyT9N6Rnnt@containers-us-west-17
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'OPTIONS': {
-            'options': '-c search_path=DO2'
-        },
-        'NAME': 'postgres',
+        'NAME': 'tk-basdat',
         'USER': 'postgres',
-        'PASSWORD': 'Rayamerak88',
+        'PASSWORD': 'postgres',
         'HOST': 'localhost',
         'PORT': '5432',
         'CONN_MAX_AGE': 1000
