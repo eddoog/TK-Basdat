@@ -22,25 +22,24 @@
           <th colspan="5" scope="colgroup" style="text-align: center;">PILIH PERTANDINGAN</th>
         </tr>
         <tr>
-          <th scope="col" style="text-align: center;">Tim Berbanding</th>
+          <th scope="col" style="text-align: center;">Tim Bertanding</th>
           <th scope="col" style="text-align: center;">Stadium</th>
           <th scope="col" style="text-align: center;">Tanggal dan Waktu</th>
           <th scope="col" style="text-align: center;">Action</th>
         </tr>
       </thead>
       <tbody>
+      <form method="POST">
+        {% csrf_token %}
+        {% for p in pertandingan %}
         <tr>
-          <td>Tim A vs Tim B</td>
-          <td>Stadium X</td>
-          <td>10 Mei 2023, 19.00 WIB</td>
-          <td><button type="button" class="btn btn-primary">Mulai Rapat</button></td>
+          <td>{{p.1}} vs {{p.2}}</td>
+          <td>{{p.3}}</td>
+          <td>{{p.4}}</td>
+          <td><button type="submit" class="btn btn-primary" value={{p.0}} name="mulai">Mulai Rapat</button></td>
         </tr>
-        <tr>
-          <td>Tim C vs Tim D</td>
-          <td>Stadium Y</td>
-          <td>11 Mei 2023, 20.00 WIB</td>
-          <td><button type="button" class="btn btn-primary">Mulai Rapat</button></td>
-        </tr>
+        {% endfor %}
+      </form>
       </tbody>
     </table>
   </div>

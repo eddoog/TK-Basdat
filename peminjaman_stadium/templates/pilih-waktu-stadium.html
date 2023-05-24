@@ -17,28 +17,23 @@
                 <h2 class="green">Pilih Waktu Peminjaman</h2>
             </div>
             <div class="d-flex justify-content-center me-4">
-                <h3 class="green">Stadium Gelora Bung Karno</h3>
+                <h3 class="green">{{ stadium_name }}</h3>
             </div>
             <div class="col-md-6 col-md-offset-2">
-                <form class="px-5 py-3">
+                <form method="POST" class="px-5 py-3">
+                    {% csrf_token %}
                     <table class="table table-borderless table-striped">
                         <thead>
                         <th>Waktu tersedia</th>
                         <th></th>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>06.00-08.00</td>
-                            <td><button name="waktu" type="submit" value="">Pesan</button></td>
-                        </tr>
-                        <tr>
-                            <td>10.00-12.00</td>
-                            <td><button name="waktu" type="submit" value="">Pesan</button></td>
-                        </tr>
-                        <tr>
-                            <td>16.00-18.00</td>
-                            <td><button name="waktu" type="submit" value="">Pesan</button></td>
-                        </tr>
+                        {% for time in available_time %}
+                            <tr>
+                                <td>{{ time.0 }} - {{ time.1 }}</td>
+                                <td><button type="submit" name="time" value="{{ time }}">Pesan</button></td>
+                            </tr>
+                        {% endfor %}
                         </tbody>
                     </table>
                 </form>

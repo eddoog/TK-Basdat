@@ -8,5 +8,5 @@ app_name = 'peminjaman_stadium'
 urlpatterns = [
     path('', peminjaman_stadium, name='peminjaman_stadium'),
     path('pesan', pesan_stadium, name='pesan_stadium'),
-    path('pesan/pilih_waktu', pilih_waktu_stadium, name='pilih_waktu_stadium'),
+    path(r'pesan/pilih_waktu/<str:sid>/<str:date>', pilih_waktu_stadium, name='pilih_waktu_stadium'),
 ]
