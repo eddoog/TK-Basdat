@@ -1,6 +1,9 @@
-{% load static %} 
-
+{% load static %}
+{% block meta %} 
+<script src="{% static 'js/navbar.js' %}"></script>
+{% endblock meta %}
 {% block content %}
+{% if request.COOKIES.username is not None %}
 <header class="header">
     <nav class="navbar navbar-expand-lg px-4">
         <a class="navbar-brand ms-auto">D02</a>
@@ -17,16 +20,24 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <div class="navbar-nav ms-auto">
-                <a class="nav-link me-auto" href="#">Dashboard</a>
+                <a class="nav-link me-auto" href="/dashboard/">Dashboard</a>
+                {% if request.COOKIES.role == 'Manajer' %}
+                <a class="nav-link me-auto" href="/manajer/tim/">Mengelola Tim</a>
+                <a class="nav-link me-auto" href="#">Peminjaman Stadium</a>
+                <a class="nav-link me-auto" href="#">List Pertandingan</a>
+                <a class="nav-link me-auto" href="#">History Rapat</a>
+                {% elif request.COOKIES.role == 'Penonton' %}
+                <a class="nav-link me-auto" href="#">Pembelian Tiket</a>
+                <a class="nav-link me-auto" href="#">List Pertandingan</a>
+                {% elif request.COOKIES.role == 'Panitia' %}
                 <a class="nav-link me-auto" href="#">Rapat</a>
-                <a class="nav-link me-auto" href="#"
-                    >Manage Pertandingan</a
-                >
-                <button class="nav-link ms-auto logout-button">
-                    Log Out
-                </button>
+                <a class="nav-link me-auto" href="#">Manage Pertandingan</a>
+                {% endif %}
+
+                <button class="nav-link ms-auto logout-button">Log Out</button>
             </div>
         </div>
     </nav>
 </header>
+{% endif %}
 {% endblock content %}

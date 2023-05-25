@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'pembuatan_pertandingan',
     'list_pertandingan',
     'history_rapat',
+    'manajer',
 ]
 
 MIDDLEWARE = [

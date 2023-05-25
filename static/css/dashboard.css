@@ -252,8 +252,26 @@ progress {
     color: #ff4b2b;
 }
 
+.progressz button {
+    font-size: 15px;
+    height: 35px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    width: 40%;
+    text-align: center;
+    background-color: whitesmoke;
+    color: #ff4b2b;
+}
+
 .hide {
     display: none;
+}
+
+.black {
+    color: black;
 }
 
 .match,
@@ -315,7 +333,8 @@ progress {
         position: fixed;
     }
 
-    .listbre .ulul li, .activebre {
+    .listbre .ulul li,
+    .activebre {
         display: flex;
         justify-content: center;
     }

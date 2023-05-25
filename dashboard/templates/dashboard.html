@@ -1,11 +1,9 @@
 {% extends 'base.html' %} 
 {% load static %} 
-
 {% block meta %}
 <title>Dashboard</title>
 <link href="{% static 'css/dashboard.css' %}" rel="stylesheet" />
 {% endblock meta %} 
-
 {% block content %}
 <div class="bodyall">
     <div id="errorMessage"></div>
@@ -20,12 +18,12 @@
                     </div>
                     <ul class="ulul no-padding no-margin">
                         <li class="listbro">
-                            <h3 class="no-padding no-margin">Alfredo</h3>
+                            <h3 class="no-padding no-margin">{{nama_depan}}</h3>
                             <p class="no-padding no-margin">Nama Depan</p>
                         </li>
                         <li class="listbro">
-                            <h3 class="no-padding no-margin">Alumni</h3>
-                            <p class="no-padding no-margin">Status</p>
+                            <h3 class="no-padding no-margin">{{role}}</h3>
+                            <p class="no-padding no-margin">Role</p>
                         </li>
                     </ul>
                 </div>
@@ -33,95 +31,232 @@
                     <ul class="ulul no-padding no-margin" id="option">
                         <li class="inactive">ALL</li>
                         <hr />
-                        <li class="activeMid">DAFTAR RAPAT</li>
+                        <li class="activeMid">DAFTAR {% if role == 'Panitia' %}RAPAT{% elif role == 'Manajer' %}TIM{% elif role == 'Penonton' %}PERTANDINGAN{% endif %}</li>
                     </ul>
                 </div>
                 <div class="midMid3">
-                    <div class="progressz">
-                        <p class="no-padding no-margin">Completed</p>
-                        <h3 class="no-padding no-margin">Rapat 1</h3>
-                        <p class="no-padding no-margin">Perwakilan Panitia: Alfredo</p>
-                        <a class="linkbro no-padding no-margin" href="#">History</a><br />
-                        <progress class="no-padding no-margin" value="100" max="100"></progress>
-                        <h4 class="no-padding no-margin">TIME: OCT 27, 2022</h4>
-                    </div>
-                    <div class="progressz no-padding no-margin">
-                        <p class="no-padding no-margin">Completed</p>
-                        <h3 class="no-padding no-margin">Rapat 2</h3>
-                        <p class="no-padding no-margin">Perwakilan Panitia: Alfredo</p>
-                        <a class="linkbro no-padding no-margin" href="#">History</a><br />
-                        <progress class="no-padding no-margin" value="100" max="100"></progress>
-                        <h4 class="no-padding no-margin">TIME: SEPT 10, 2022</h4>
-                    </div>
-                    <div class="progressz no-padding no-margin">
-                        <p class="no-padding no-margin">Completed</p>
-                        <h3 class="no-padding no-margin">Rapat 3</h3>
-                        <p class="no-padding no-margin">Perwakilan Panitia: Alfredo</p>
-                        <a class="linkbro no-padding no-margin" href="#">History</a><br />
-                        <progress class="no-padding no-margin" value="100" max="100"></progress>
-                        <h4 class="no-padding no-margin">TIME: AUG 5, 2022</h4>
-                    </div>
-                    <div class="progressz no-padding no-margin">
-                        <p class="no-padding no-margin">Completed</p>
-                        <h3 class="no-padding no-margin">Rapat 4</h3>
-                        <p>Perwakilan Panitia: Alfredo</p>
-                        <a class="linkbro no-padding no-margin" href="#">History</a><br />
-                        <progress class="no-padding no-margin" value="100" max="100"></progress>
-                        <h4 class="no-padding no-margin">TIME: NOV 30, 2022</h4>
-                    </div>
-                    <div class="progressz team no-padding no-margin">
-                        <p class="no-padding no-margin">X Member</p>
-                        <h3 class="no-padding no-margin">Nama Tim</h3>
-                        <p class="no-padding no-margin">Manager: Alfredo</p>
-                        <a class="linkbro no-padding no-margin" href="#">Details</a><br />
-                        <h4 class="no-padding no-margin">Nama Universitas</h4>
-                    </div>
+                    {% if role == 'Panitia' %}
+                        <div class="progressz">
+                            <p class="no-padding no-margin">Completed</p>
+                            <h3 class="no-padding no-margin">Rapat 1</h3>
+                            <p class="no-padding no-margin">Perwakilan Panitia: Alfredo</p>
+                            <a class="linkbro no-padding no-margin" href="#">History</a><br />
+                            <progress class="no-padding no-margin" value="100" max="100"></progress>
+                            <h4 class="no-padding no-margin">TIME: OCT 27, 2022</h4>
+                        </div>
+                        <div class="progressz no-padding no-margin">
+                            <p class="no-padding no-margin">Completed</p>
+                            <h3 class="no-padding no-margin">Rapat 2</h3>
+                            <p class="no-padding no-margin">Perwakilan Panitia: Alfredo</p>
+                            <a class="linkbro no-padding no-margin" href="#">History</a><br />
+                            <progress class="no-padding no-margin" value="100" max="100"></progress>
+                            <h4 class="no-padding no-margin">TIME: SEPT 10, 2022</h4>
+                        </div>
+                        <div class="progressz no-padding no-margin">
+                            <p class="no-padding no-margin">Completed</p>
+                            <h3 class="no-padding no-margin">Rapat 3</h3>
+                            <p class="no-padding no-margin">Perwakilan Panitia: Alfredo</p>
+                            <a class="linkbro no-padding no-margin" href="#">History</a><br />
+                            <progress class="no-padding no-margin" value="100" max="100"></progress>
+                            <h4 class="no-padding no-margin">TIME: AUG 5, 2022</h4>
+                        </div>
+                        <div class="progressz no-padding no-margin">
+                            <p class="no-padding no-margin">Completed</p>
+                            <h3 class="no-padding no-margin">Rapat 4</h3>
+                            <p>Perwakilan Panitia: Alfredo</p>
+                            <a class="linkbro no-padding no-margin" href="#">History</a><br />
+                            <progress class="no-padding no-margin" value="100" max="100"></progress>
+                            <h4 class="no-padding no-margin">TIME: NOV 30, 2022</h4>
+                        </div>
+                    {% endif %}
+                    {% if role == 'Manajer' %}
+                        {% if tim %}
+                        <div class="progressz team no-padding no-margin">
+                            <p class="no-padding no-margin">{{list_pemain|length}} Member</p>
+                            <h3 class="no-padding no-margin">{{tim}}</h3>
+                            <p class="no-padding no-margin">Manager: {{nama_depan}} {{nama_belakang}}</p>
+                            <button
+                                class="linkbro no-padding no-margin"
+                                data-bs-toggle="modal"
+                                data-bs-target="#timModal"
+                            >
+                                Details</button
+                            ><br />
+                            <h4 class="no-padding no-margin">{{universitas}}</h4>
+                        </div>
+                        {% else %}
+                            <h2 class="text-xl font-semibold mt-8 mb-4 text-center black">{{message}}</h2>
+                        {% endif %}
+                    {% endif %}
+                    
+                    {% if role == 'Penonton' %}
                     <div class="progressz match no-padding no-margin">
                         <p class="no-padding no-margin">Completed</p>
                         <h3 class="no-padding no-margin">X VS Y</h3>
                         <p class="no-padding no-margin">Winner: X</p>
-                        <a class="linkbro no-padding no-margin" href="#">Details</a><br />
-                        <h4 class="no-padding no-margin">TIME: OCT-27, 2022 - Sept 10, 2022</h4>
+                        <a class="linkbro no-padding no-margin" href="#"
+                            >Details</a
+                        ><br />
+                        <h4 class="no-padding no-margin">
+                            TIME: OCT-27, 2022 - Sept 10, 2022
+                        </h4>
                     </div>
+                    {% endif %}
                 </div>
             </div>
             <div class="midRight">
                 <h2 class="">Personal Information</h2>
                 <ul class="ulul no-padding no-margin">
                     <li class="listbro">
-                        <h3 class="no-padding no-margin">Nama Depan</h3>
-                        <p class="no-padding no-margin">Alfredo</p>
-                    </li>
-                    <li class="listbro">
-                        <h3 class="no-padding no-margin">Nama Belakang</h3>
-                        <p class="no-padding no-margin">Austin</p>
+                        <h3 class="no-padding no-margin">Nama</h3>
+                        <p class="no-padding no-margin">{{nama_depan}} {{nama_belakang}}</p>
                     </li>
                     <li class="listbro">
                         <h3 class="no-padding no-margin">Nomor HP</h3>
-                        <p class="no-padding no-margin">012345678910</p>
+                        <p class="no-padding no-margin">{{no_hp}}</p>
                     </li>
                     <li class="listbro">
                         <h3 class="no-padding no-margin">Email</h3>
-                        <p class="no-padding no-margin">alfredo.austin@ui.ac.id</p>
+                        <p class="no-padding no-margin">
+                            {{email}}
+                        </p>
                     </li>
                     <li class="listbro">
                         <h3 class="no-padding no-margin">Alamat</h3>
                         <p class="no-padding no-margin">
-                            Jl Jend A Yani 2 Perk Pulomas Satu Ged 5 Lt 2 Ruang 3,
-                            Kayu Putih, Pulo Gadun, Jakarta,
+                            {{alamat}}
                         </p>
                     </li>
                     <li class="listbro">
                         <h3 class="no-padding no-margin">Status</h3>
-                        Mahasiswa
+                        {{status}}
                     </li>
+                    {% if role == "Panitia" %}
                     <li class="listbro">
                         <h3 class="no-padding no-margin">Jabatan</h3>
                         <p class="no-padding no-margin">Ketua IT Dev</p>
                     </li>
+                    {% endif %}
                 </ul>
             </div>
         </section>
+    </div>
+    <div
+        class="modal fade"
+        id="timModal"
+        tabindex="-1"
+        aria-labelledby="timModalLabel"
+        aria-hidden="true"
+    >
+        <div class="modal-dialog modal-dialog-scrollable modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5 black" id="timModalLabel">
+                        {% if role == 'Panitia' %}DETAIL RAPAT{% elif role == 'Manajer' %}{{tim}}{% elif role == 'Penonton' %}PERTANDINGAN{% endif %}
+                    </h1>
+                    <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                    ></button>
+                </div>
+                <div class="modal-body black">
+                    {% if list_pemain %}
+                    <h2 class="text-xl font-semibold mt-8 mb-4 text-center">Pemain</h2>
+                    <table class="table-auto mx-auto w-full">
+                        <thead>
+                            <tr tr class="bg-secondary-subtle">
+                                <th class="px-4 py-2">Name</th>
+                                <th class="px-4 py-2">No HP</th>
+                                <th class="px-4 py-2">Tanggal Lahir</th>
+                                <th class="px-4 py-2">Is Captain</th>
+                                <th class="px-4 py-2">Posisi</th>
+                                <th class="px-4 py-2">NPM</th>
+                                <th class="px-4 py-2">Jenjang</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for pemain in list_pemain %}
+                            <tr>
+                                <td class="border px-4 py-2">
+                                    {{pemain.nama_depan}} {{pemain.nama_belakang}}
+                                </td>
+                                <td class="border px-4 py-2">
+                                    {{pemain.nomor_hp}}
+                                </td>
+                                <td class="border px-4 py-2">
+                                    {{pemain.tgl_lahir}}
+                                </td>
+                                <td class="border px-4 py-2">
+                                    {% if pemain.is_captain %}
+                                    Yes
+                                    {% else %}
+                                    No
+                                    {% endif %}
+                                </td>
+                                <td class="border px-4 py-2">
+                                    {{pemain.posisi}}
+                                </td>
+                                <td class="border px-4 py-2">
+                                    {{pemain.npm}}
+                                </td>
+                                <td class="border px-4 py-2">
+                                    {{pemain.jenjang}}
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    {% else %}
+                    <h2 class="text-xl font-semibold mt-8 mb-4 text-center">Belum ada pemain</h2>
+                    {% endif %}
+                    <br><br>
+                    {% if list_pelatih %}
+                    <h2 class="text-xl font-semibold mt-8 mb-4 text-center">Pelatih</h2>
+                    <table class="table-auto mx-auto w-full">
+                        <thead>
+                            <tr tr class="bg-secondary-subtle">
+                                <th class="px-4 py-2">Nama Pelatih</th>
+                                <th class="px-4 py-2">No HP</th>
+                                <th class="px-4 py-2">Email</th>
+                                <th class="px-4 py-2">Alamat</th>
+                                <th class="px-4 py-2">Spesialisasi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for pelatih in list_pelatih %}
+                            <tr>
+                                <td class="border px-4 py-2">
+                                    {{pelatih.nama_depan}} {{pelatih.nama_belakang}}
+                                </td>
+                                <td class="border px-4 py-2">
+                                    {{pelatih.nomor_hp}}
+                                </td>
+                                <td class="border px-4 py-2">
+                                    {{pelatih.email}}
+                                </td>
+                                <td class="border px-4 py-2">
+                                    {{pelatih.alamat}}
+                                </td>
+                                <td class="border px-4 py-2">
+                                    {{pelatih.spesialisasi}}
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    {% else %}
+                    <h2 class="text-xl font-semibold mt-8 mb-4 text-center">Belum ada pelatih</h2>
+                    {% endif %}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+                        OK
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <script src="{% static 'js/dashboard.js' %}"></script>

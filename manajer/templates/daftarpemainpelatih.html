@@ -1,0 +1,154 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block meta %}
+<link href="{% static 'css/formtim.css' %}" rel="stylesheet" />
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td,
+    th {
+        border: 1px solid #afaeae;
+        text-align: center;
+        padding: 8px;
+    }
+    th[colspan='8']:nth-child(odd) {
+        background-color: #ffd3d9;
+    }
+
+    th[colspan='8']:nth-child(even) {
+        background-color: #ffa1ae;
+    }
+</style>
+<title>Mengelola Tim</title>
+{% endblock meta %} 
+{% block content %}
+<div class="container-fluid py-5 h-100">
+    <div id="errorMessage text-danger font-bold text-center">{{error}}</div>
+    <div class="row justify-content-center align-items-center h-100">
+        <div class="col-12 col-lg-9 col-xl-7">
+            <div
+                class="card shadow-2-strong card-registration"
+                style="border-radius: 15px"
+            >
+                <div class="card-body p-4 p-md-5">
+                    <h3
+                        class="mb-4 pb-2 pb-md-0 mb-md-5 d-flex justify-content-center"
+                    >
+                        Daftar Pemain & Pelatih
+                    </h3>
+                    <div>
+                        <table>
+                            <tr>
+                                <th colspan="8">Tim</th>
+                            </tr>
+                            <tr>
+                                <th colspan="8">Pemain</th>
+                            </tr>
+                            <tr>
+                                <td>Nama Pemain</td>
+                                <td>No HP</td>
+                                <td>Tanggal Lahir</td>
+                                <td>Is Captain</td>
+                                <td>Posisi</td>
+                                <td>NPM</td>
+                                <td>Jenjang</td>
+                                <td>Action</td>
+                            </tr>
+                            {% for pemain in list_pemain %}
+                            <tr>
+                                <td>{{pemain.nama_depan}} {{pemain.nama_belakang}}</td>
+                                <td>{{pemain.nomor_hp}}</td>
+                                <td>{{pemain.tgl_lahir}}</td>
+                                <td>{% if pemain.is_captain %}Yes{% else %}No{% endif %}</td>
+                                <td>{{pemain.posisi}}</td>
+                                <td>{{pemain.npm}}</td>
+                                <td>{{pemain.jenjang}}</td>
+                                <td>
+                                    {% if not pemain.is_captain %}
+                                    <form method="POST" action="/manajer/tim/change-captain/">
+                                        <button
+                                            type="submit"
+                                            class="btn btn-outline-success"
+                                            style="margin-bottom: 10px"
+                                            value="{{pemain.id_pemain}}"
+                                            name="id_kapten"
+                                        >
+                                            Captain
+                                        </button>
+                                    </form>
+                                    {% endif %}
+                                    <form method="POST" action="/manajer/tim/remove-player/">
+                                        <button
+                                            type="submit"
+                                            class="btn btn-outline-danger"
+                                            value="{{pemain.id_pemain}}"
+                                            name="id_pemain"
+                                        >
+                                            Delete
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                            <tr>
+                                <th colspan="8">Pelatih</th>
+                            </tr>
+                            <tr>
+                                <td>Nama Pelatih</td>
+                                <td>No HP</td>
+                                <td>Email</td>
+                                <td colspan="3">Alamat</td>
+                                <td>Spesialisasi</td>
+                                <td>Action</td>
+                            </tr>
+                            {% for pelatih in list_pelatih %}
+                            <tr>
+                                <td>{{pelatih.nama_depan}} {{pelatih.nama_belakang}}</td>
+                                <td>{{pelatih.nomor_hp}}</td>
+                                <td>{{pelatih.email}}</td>
+                                <td colspan="3">{{pelatih.alamat}}</td>
+                                <td>{{pelatih.spesialisasi}}</td>
+                                <td>
+                                    <form method="POST" action="/manajer/tim/remove-coach/"> 
+                                        <button
+                                            type="submit"
+                                            class="btn btn-outline-danger"
+                                            value="{{pelatih.id}}"
+                                            name="id_pelatih"
+                                        >
+                                            Delete
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </table>
+                        <div class="mt-4 pt-2 d-flex justify-content-center">
+                            <a
+                                class="btn btn-lg"
+                                type="submit"
+                                style="background-color: #ff445c; color: white"
+                                href="/manajer/tim/daftar-pemain"
+                            >+ Pemain</a>
+                            <a
+                                class="btn btn-lg"
+                                type="submit"
+                                style="
+                                    background-color: #ff445c;
+                                    color: white;
+                                    margin-left: 10px;
+                                "
+                                href="/manajer/tim/daftar-pelatih"
+                            >+ Pelatih</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

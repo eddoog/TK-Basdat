@@ -73,7 +73,7 @@ for (const radio of roleRadios) {
 
 function showError(message) {
     $('#errorMessage').html('');
-    const text = `<p class="text-danger font-bold text-center">${message}</p>`;
+    const text = `<p class="text-danger fw-bold text-center">${message}</p>`;
     $(text).appendTo('#errorMessage');
 }
 
