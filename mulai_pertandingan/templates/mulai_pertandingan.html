@@ -1,0 +1,69 @@
+{% extends 'base.html' %} {% load static %} {% block meta %}
+<title>Mulai Pertandingan</title>
+
+{% if messages %}
+<div class="alert alert alert-dismissible alert-success">
+
+
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    <ul>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}
+
+<!-- Style -->
+<link href="{% static 'css/mulai-pertandingan.css' %}" rel="stylesheet" /> {% endblock meta %} {% block content %}
+<div class="col-md-8 col-md-offset-2 mx-auto">
+    <div class="rapat-table">
+
+        <table class="table table-borderless table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Tim 1</th>
+                    <th>Tim 2</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in tim_mp %}
+                <tr>
+                    <td>{{i.tim_1}}</td>
+                    <td>{{i.tim_2}}</td>
+                    <td>
+                        <div class="d-flex justify-content-around">
+                            <a class="btn btn-primary" href="{% url 'mulai_pertandingan:pilih_peristiwa' id_pertandingan=i.id_pertandingan nama_tim=i.tim_1%}">
+                                Masukkan Peristiwa Tim 1
+                            </a>
+                            <a class="btn btn-primary" href="{% url 'mulai_pertandingan:pilih_peristiwa' id_pertandingan=i.id_pertandingan nama_tim=i.tim_2%}">
+                                Masukkan Peristiwa Tim 2
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <form>
+            <div class="row mt-5">
+                <div class="col-md-12 d-flex justify-content-center">
+                    <button type="submit" class="btn btn-success">SUBMIT</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const alert = document.querySelector(".alert");
+        const closeButton = alert.querySelector(".btn-close");
+
+        closeButton.addEventListener("click", function() {
+            alert.style.display = "none";
+        });
+    });
+</script>
+{% endblock content %}

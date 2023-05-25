@@ -1,0 +1,130 @@
+{% extends "base.html" %} {% block content %}
+<style>
+    /* CSS styling */
+    
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+    }
+    
+    h1 {
+        text-align: center;
+    }
+    
+    table {
+        margin: auto;
+        border-collapse: collapse;
+        width: 100%;
+        background-color: white;
+    }
+    
+    th,
+    td {
+        text-align: center;
+        padding: 10px;
+    }
+    
+    th {
+        background-color: #e21515;
+        color: white;
+    }
+    
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+    
+    select {
+        padding: 8px 16px;
+        border: none;
+        border-radius: 4px;
+        background-color: #f2f2f2;
+        font-size: 16px;
+    }
+    
+    button {
+        background-color: #6dd332;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    
+    button:hover {
+        background-color: #85e58f;
+    }
+</style>
+
+<div class="container">
+
+    {% if messages %}
+    <div class="alert alert alert-dismissible alert-danger">
+
+
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+    <h1>Pilih Peristiwa Tim {{tim}}</h1>
+    <form method="POST" action="{% url 'mulai_pertandingan:pilih_peristiwa' id_pertandingan=id_pertandingan nama_tim=nama_tim%}">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nama Pemain</th>
+                    <th>Peristiwa</th>
+                    <th>Waktu</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <select id="pemain" name="pemain">
+                      <option value="None">None</option>
+                      {% for opsipemain in dropdown_pemain %}
+                        <option value={{opsipemain.id}}>{{opsipemain.name}}</option>
+                      {% endfor %}
+                    </select>
+                    </td>
+                    <td>
+                        <select id="peristiwa" name="peristiwa">
+                      <option value="None">None</option>
+                      <option value="Kartu Kuning">Kartu Kuning</option>
+                      <option value="Kartu Merah">Kartu Merah</option>
+                      <option value="Assist">Assist</option>
+                      <option value="Gol">Gol</option>
+                    </select>
+                    </td>
+                    <td>
+                        <form>
+                            <input type="datetime-local" id="waktu" name="waktu" step="1" style="margin-left: 30px;">
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div style="text-align:center;margin-top:20px;">
+            <button type="submit" value="submit">Submit</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const alert = document.querySelector(".alert");
+        const closeButton = alert.querySelector(".btn-close");
+
+        closeButton.addEventListener("click", function() {
+            alert.style.display = "none";
+        });
+    });
+</script>
+{% endblock %}
