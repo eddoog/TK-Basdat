@@ -83,11 +83,11 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'TK.wsgi.application'
-PRODUCTION = os.getenv('DATABASE_URL') is not None
+
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-DATABASE_URL = 'postgresql://postgres:Bu7rxUgIh1WyT9N6Rnnt@containers-us-west-179.railway.app:5432/railway'
+DATABASE_URL = 'postgresql://postgres:Bu7rxUgIh1WyT9N6Rnnt@containers-us-west-179.railway.app:6087/railway'
 
 DATABASES = {
     'default': {
@@ -96,10 +96,11 @@ DATABASES = {
         'USER': 'postgres',
         'PASSWORD': 'Bu7rxUgIh1WyT9N6Rnnt',
         'HOST': 'containers-us-west-179.railway.app',
-        'PORT': '5432',
+        'PORT': '6087',
         'CONN_MAX_AGE': 1000
     }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
