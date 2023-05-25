@@ -1,15 +1,26 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from utils.query import query
-
+from utils.users import check_username, check_role
 
 # Create your views here.
+
+
 def peminjaman_stadium(request):
-    if request.COOKIES.get('role').lower() != 'manajer':
+    username = check_username(request)
+    if (username is None):
+        return redirect('/')
+
+    role = check_role(request)
+    if (role is None):
+        return redirect('/')
+
+    if (role != 'Manajer'):
         return redirect('/dashboard')
 
     m_user = request.COOKIES.get('username')
-    m_id = query(f"SELECT id_manajer FROM MANAJER WHERE username = '{m_user}'")[0]['id_manajer']
+    m_id = query(f"SELECT id_manajer FROM MANAJER WHERE username = '{m_user}'")[
+        0]['id_manajer']
 
     hst = query(f"""SELECT id_manajer, nama, start_datetime, row_number() over (ORDER BY start_datetime)
                     FROM PEMINJAMAN NATURAL JOIN STADIUM 
@@ -31,7 +42,15 @@ def peminjaman_stadium(request):
 
 
 def pesan_stadium(request):
-    if request.COOKIES.get('role').lower() != 'manajer':
+    username = check_username(request)
+    if (username is None):
+        return redirect('/')
+
+    role = check_role(request)
+    if (role is None):
+        return redirect('/')
+
+    if (role != 'Manajer'):
         return redirect('/dashboard')
 
     context = {'stadiums': query("SELECT id_stadium, nama FROM STADIUM")}
@@ -42,9 +61,11 @@ def pesan_stadium(request):
         tgl = request.POST.get("tanggal")
 
         m_user = request.COOKIES.get('username')
-        m_id = query(f"SELECT id_manajer FROM MANAJER WHERE username = '{m_user}'")[0]['id_manajer']
+        m_id = query(f"SELECT id_manajer FROM MANAJER WHERE username = '{m_user}'")[
+            0]['id_manajer']
 
-        res = query(f"INSERT INTO D02.PEMINJAMAN VALUES ('{m_id}','{tgl}','{tgl}','{sid}')")
+        res = query(
+            f"INSERT INTO D02.PEMINJAMAN VALUES ('{m_id}','{tgl}','{tgl}','{sid}')")
         res = f"{res}"
         if res != "1":
 
@@ -62,20 +83,30 @@ def pesan_stadium(request):
 
 
 def edit(request):
+    username = check_username(request)
+    if (username is None):
+        return redirect('/')
 
-    if request.COOKIES.get('role').lower() != 'manajer':
+    role = check_role(request)
+    if (role is None):
+        return redirect('/')
+
+    if (role != 'Manajer'):
         return redirect('/dashboard')
 
     date = request.session.get("tgl")
-    context = {'stadiums': query("SELECT id_stadium, nama FROM STADIUM"), 'tanggal': f"{date[8:]}/{date[5:7]}/{date[0:4]}"}
+    context = {'stadiums': query("SELECT id_stadium, nama FROM STADIUM"),
+               'tanggal': f"{date[8:]}/{date[5:7]}/{date[0:4]}"}
 
     if request.method == "POST":
 
         m_user = request.COOKIES.get('username')
-        m_id = query(f"SELECT id_manajer FROM MANAJER WHERE username = '{m_user}'")[0]['id_manajer']
+        m_id = query(f"SELECT id_manajer FROM MANAJER WHERE username = '{m_user}'")[
+            0]['id_manajer']
         sid = request.POST.get("stadium")
 
-        res = str(query(f"UPDATE D02.PEMINJAMAN SET id_stadium = '{sid}' WHERE id_manajer = '{m_id}' AND start_datetime = '{date}'"))
+        res = str(query(
+            f"UPDATE D02.PEMINJAMAN SET id_stadium = '{sid}' WHERE id_manajer = '{m_id}' AND start_datetime = '{date}'"))
         print(res)
         if res != "1":
             if res.startswith("Stadium"):
