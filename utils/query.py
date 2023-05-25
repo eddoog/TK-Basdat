@@ -6,10 +6,10 @@ from utils.db_utils import fetch_convert_to_dict
 
 try:
     connection = psycopg2.connect(user="postgres",
-                                  password='postgres',
-                                  host='localhost',
-                                  port='5432',
-                                  database="tk-basdat")
+                                  password='Bu7rxUgIh1WyT9N6Rnnt',
+                                  host='containers-us-west-179.railway.app',
+                                  port='6087',
+                                  database="railway")
 
     connection.autocommit = True
     cursor = connection.cursor()
