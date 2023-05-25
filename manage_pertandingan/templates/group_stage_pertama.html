@@ -1,141 +1,91 @@
-{% extends 'base.html' %}
-{% load static %}
+{% extends 'base.html' %} {% load static %} {% block meta %}
+<title>Manage Pertandingan</title>
 
-{% block meta %}
-<link href="{% static 'css/manage_pertandingan.css' %}" rel="stylesheet" />
-{% endblock meta %}
-{% block content %}    
-    <body>
-        <div class="container">
-            <div class="table-responsive">
-            <table class="table table-bordered custom-table">
-              <thead>
-                <tr>
-                  <th colspan="5" class="table-heading">List Pertandingan Group Stage</th>
-                </tr>
-                <tr>
-                  <th>Grup</th>
-                  <th>Tim</th>
-                  <th>Waktu</th>
-                  <th>Pemenang</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td rowspan="3">Grup A</td>
-                  <td>Tim 1 VS Tim 2</td>
-                  <td>05 May 2023, 10:00 AM</td>
-                  <td>Tim 1</td>
-                  <td>
-                    <a href="#">Lihat Peristiwa Tim 1</a><br>
-                    <a href="#">Lihat Peristiwa Tim 2</a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Tim 1 VS Tim 3</td>
-                  <td>05 May 2023, 2:30 PM</td>
-                  <td>Tim 3</td>
-                  <td>
-                    <a href="#">Lihat Peristiwa Tim 1</a><br>
-                    <a href="#">Lihat Peristiwa Tim 2</a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Tim 2 VS Tim 3</td>
-                  <td>05 May 2023, 4:45 PM</td>
-                  <td>Tim 1</td>
-                  <td>
-                    <a href="#">Lihat Peristiwa Tim 1</a><br>
-                    <a href="#">Lihat Peristiwa Tim 2</a>
-                  </td>
-                </tr>
-                <tr>
-                    <td rowspan="3">Grup B</td>
-                    <td>Tim 4 VS Tim 5</td>
-                    <td>06 May 2023, 10:00 AM</td>
-                    <td>Tim 5</td>
-                    <td>
-                      <a href="#">Lihat Peristiwa Tim 1</a><br>
-                      <a href="#">Lihat Peristiwa Tim 2</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Tim 4 VS Tim 6</td>
-                    <td>06 May 2023, 2:30 PM</td>
-                    <td>Tim 6</td>
-                    <td>
-                      <a href="#">Lihat Peristiwa Tim 1</a><br>
-                      <a href="#">Lihat Peristiwa Tim 2</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Tim 5 VS Tim 6</td>
-                    <td>06 May 2023, 4:45 PM</td>
-                    <td>Tim 5</td>
-                    <td>
-                      <a href="#">Lihat Peristiwa Tim 1</a><br>
-                      <a href="#">Lihat Peristiwa Tim 2</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td rowspan="3">Grup C</td>
-                    <td>Tim 7 VS Tim 8</td>
-                    <td>[Waktu Dimulai -5 Menit]</td>
-                    <td>-</td>
-                    <td>
-                      <a href="#">Mulai</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Tim 7 VS Tim 9</td>
-                    <td>07 May 2023, 2:30 PM</td>
-                    <td>-</td>
-                    <td>
-                      Belum Waktunya
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Tim 8 VS Tim 9</td>
-                    <td>07 May 2023, 4:45 PM</td>
-                    <td>-</td>
-                    <td>
-                        Belum Waktunya
-                    </td>
-                  </tr>
-                  <tr>
-                    <td rowspan="3">Grup D</td>
-                    <td>Tim 10 VS Tim 11</td>
-                    <td>08 May 2023, 10:00 AM</td>
-                    <td>-</td>
-                    <td>
-                        Belum Waktunya
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Tim 10 VS Tim 12</td>
-                    <td>08 May 2023, 2:30 PM</td>
-                    <td>-</td>
-                    <td>
-                        Belum Waktunya
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Tim 11 VS Tim 12</td>
-                    <td>08 May 2023, 4:45 PM</td>
-                    <td>-</td>
-                    <td>
-                      Belum Waktunya
-                    </td>
-                  </tr>
-                  
-              </tbody>
-            </table>
-            <div class="text-center">
-              <button class="button">Finish</button>
+{% if messages %}
+<div class="alert alert alert-dismissible alert-success">
+
+
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    <ul>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}
+
+<!-- Style -->
+<link href="{% static 'css/mulai-pertandingan.css' %}" rel="stylesheet" /> {% endblock meta %} {% block content %}
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Tim 1</th>
+                <th>Tim 2</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pertandingan in pertandingan_data %}
+            <tr>
+                <td>{{ pertandingan.tim_1 }}</td>
+                <td>{{ pertandingan.tim_2 }}</td>
+                <td>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#peristiwaModal1{{pertandingan.id}}">Lihat Peristiwa Tim 1</button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#peristiwaModal2{{pertandingan.id}}">Lihat Peristiwa Tim 2</button>
+                </td>
+            </tr>
+
+            <!-- Modal 1 -->
+            <div class="modal fade" id="peristiwaModal1{{pertandingan.id}}" tabindex="-1" role="dialog" aria-labelledby="peristiwaModal1{{pertandingan.id}}Label" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="peristiwaModal2{{pertandingan.id}}Label">Peristiwa Tim 2</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            {% for peristiwa in pertandingan.peristiwa_tim_1 %}
+                            <div class="card mb-2">
+                                <div class="card-body">
+                                    <h4 class="card-title">{{ peristiwa.nama_pemain }}</h4>
+                                    <p class="card-text">Waktu: {{ peristiwa.waktu }}</p>
+                                    <p class="card-text">Jenis: {{ peristiwa.jenis }}</p>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
             </div>
-            
-    
-      
-    </body>
+
+            <!-- Modal 2 -->
+            <div class="modal fade" id="peristiwaModal2{{pertandingan.id}}" tabindex="-1" role="dialog" aria-labelledby="peristiwaModal2{{pertandingan.id}}Label" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="peristiwaModal2{{pertandingan.id}}Label">Peristiwa Tim 2</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            {% for peristiwa in pertandingan.peristiwa_tim_2 %}
+                            <div class="card mb-2">
+                                <div class="card-body">
+                                    <h4 class="card-title">{{ peristiwa.nama_pemain }}</h4>
+                                    <p class="card-text">Waktu: {{ peristiwa.waktu }}</p>
+                                    <p class="card-text">Jenis: {{ peristiwa.jenis }}</p>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+
 {% endblock content %}
