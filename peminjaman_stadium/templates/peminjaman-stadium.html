@@ -17,22 +17,33 @@
             </div>
             <div class="col-md-8 col-md-offset-2">
                 <div class="pertandingan-table">
+                    <form method="POST">
+                        {% csrf_token %}
                     <table class="table table-borderless table-striped">
+                        {% if history_peminjaman %}
                         <thead>
                         <th>Stadium</th>
-                        <th>Waktu Mulai</th>
-                        <th>Waktu Akhir</th>
+                        <th>Tanggal Peminjaman</th>
+                        <th></th>
                         </thead>
                         <tbody>
                         {% for item in history_peminjaman %}
                             <tr>
-                                <td>{{item.0}}</td>
-                                <td>{{item.1}}</td>
-                                <td>{{item.2}}</td>
+                                <td>{{item.nama}}</td>
+                                <td>{{item.start_datetime}}</td>
+                                <td>
+                                    <button type="submit" name="index" value={{item.row_number}}>
+                                        Edit
+                                    </button>
+                                </td>
                             </tr>
                         {% endfor %}
                         </tbody>
+                        {% else %}
+                        <p class="text-center py-5">Anda belum melakukan peminjaman</p>
+                        {% endif %}
                     </table>
+                    </form>
                 </div>
                 <div class="d-flex justify-content-center me-4">
                     <a href="/peminjaman_stadium/pesan">
