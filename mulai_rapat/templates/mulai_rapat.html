@@ -33,10 +33,10 @@
         {% csrf_token %}
         {% for p in pertandingan %}
         <tr>
-          <td>{{p.1}} vs {{p.2}}</td>
-          <td>{{p.3}}</td>
-          <td>{{p.4}}</td>
-          <td><button type="submit" class="btn btn-primary" value={{p.0}} name="mulai">Mulai Rapat</button></td>
+          <td>{{p.tim_a}} vs {{p.tim_b}}</td>
+          <td>{{p.stadium}}</td>
+          <td>{{p.start_datetime}}</td>
+          <td><button type="submit" class="btn btn-primary" value={{p.id_pertandingan}} name="mulai">Mulai Rapat</button></td>
         </tr>
         {% endfor %}
       </form>

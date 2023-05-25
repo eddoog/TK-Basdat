@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block meta %}
-<title>Pilih Stadium</title>
+<title>Edit Pesanan</title>
 
 <!-- Style -->
 <link href="{% static 'css/pesan-stadium.css' %}" rel="stylesheet" />
@@ -13,31 +13,35 @@
 <div class="d-flex align-items-center h-100 pb-5">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="d-flex justify-content-center me-4">
-                <h2 class="green">Pilih Stadium</h2>
+            {% if message %}
+            <div class="alert mb-5 w-50 alert-danger alert-dismissible fade show text-center" role="alert">
+                {{ message }}
+                <button type="button" class="close bg-danger rounded-5" data-bs-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            {% endif %}
+            <div class="flex flex-col text-center me-4">
+                <h2 class="green">Edit Pesanan</h2>
+                <p>Tanggal peminjaman: {{tanggal}}</p>
             </div>
             <div class="col-md-8 col-md-offset-2">
-                <form method="POST" action="/pembelian_tiket/pilih_pertandingan" class="p-5">
+                <form class="p-5" method="POST">
                     {% csrf_token %}
                     <div class="form-group row pb-4">
                         <label for="stadium" class="col-sm-2 col-form-label">Stadium</label>
                         <div class="col-sm-10">
-                            <select id="stadium" class="form-select" name="stadium">
-                                {% for data in data %}
-                                <option value="{{ data.nama }}">{{ data.nama }}</option>
+                            <select id="stadium" name="stadium" class="form-select" required>
+                                <option selected value="" disabled hidden>Pilih stadium yang tersedia</option>
+                                {% for stadium in stadiums %}
+                                <option value="{{stadium.id_stadium}}">{{stadium.nama}}</option>
                                 {% endfor %}
                             </select>
                         </div>
                     </div>
-                    <div class="row form-group">
-                        <label for="tanggal" class="col-sm-2 col-form-label">Date</label>
-                        <div class="col-sm-10">
-                            <input type="date" class="form-control" name="date-field" id="tanggal" />
-                        </div>
-                    </div>
                     <div class="d-flex justify-content-center me-4 mt-5">
-                        <button type="submit" class="button">
-                            <span class="pe-2">Next</span>
+                        <button class="mybtn" type="submit">
+                            <span class="pe-2">Pinjam</span>
                             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M6.39205 11.2102L5.36932 10.1988L8.92045 6.64768H0V5.17041H8.92045L5.36932 1.62496L6.39205 0.60791L11.6932 5.90905L6.39205 11.2102Z" fill="currentColor"></path>
                             </svg>
@@ -50,3 +54,6 @@
 </div>
 
 {% endblock content %}
+
+{% block script %}
+{% endblock script %}

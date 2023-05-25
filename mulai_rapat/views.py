@@ -1,60 +1,63 @@
 from django.shortcuts import render, redirect
-from django.db import connection
 import datetime
+from utils.query import query
+
 
 def mulai_rapat(request):
-    response = {}
-    with connection.cursor() as cursor:
-        cursor.execute("SET SEARCH_PATH TO D02")
-        cursor.execute("SELECT P.id_pertandingan, T.tim_a, T.tim_b, S.nama stadium, P.start_datetime \
-                       FROM D02.PERTANDINGAN P \
-                       NATURAL JOIN \
-                       (SELECT A.id_pertandingan, A.nama_tim tim_a, B.nama_tim tim_b \
-                       FROM D02.TIM_PERTANDINGAN A JOIN D02.TIM_PERTANDINGAN B \
-                       ON A.id_pertandingan = B.id_pertandingan \
-                       WHERE A.nama_tim < B.nama_tim) T \
-                       JOIN D02.STADIUM S ON S.id_stadium = P.stadium \
-                       WHERE P.id_pertandingan NOT IN (SELECT id_pertandingan FROM D02.RAPAT)")
-        info_pertandingan = cursor.fetchall()
-        response["pertandingan"] = info_pertandingan
+    if request.COOKIES.get('role') != 'Panitia':
+        return redirect('/dashboard')
 
-        if request.method == "POST":
-            return redirect("/mulai_rapat/rapat/" + request.POST.get("mulai"))
+    info = query("""  SELECT P.id_pertandingan, T.tim_a, T.tim_b, S.nama stadium, P.start_datetime
+               FROM D02.PERTANDINGAN P 
+               NATURAL JOIN 
+               (SELECT A.id_pertandingan, A.nama_tim tim_a, B.nama_tim tim_b 
+               FROM D02.TIM_PERTANDINGAN A JOIN D02.TIM_PERTANDINGAN B 
+               ON A.id_pertandingan = B.id_pertandingan 
+               WHERE A.nama_tim < B.nama_tim) T 
+               JOIN D02.STADIUM S ON S.id_stadium = P.stadium 
+               WHERE P.id_pertandingan NOT IN (SELECT id_pertandingan FROM D02.RAPAT)""")
 
-    return render(request, 'mulai_rapat.html', response)
+    context = {"pertandingan": info}
+
+    if request.method == "POST":
+        request.session['pidrapat'] = request.POST.get('mulai')
+        return redirect("/mulai_rapat/rapat")
+
+    return render(request, 'mulai_rapat.html', context)
 
 
-def rapat(request, pid):
-    response = {}
-    with connection.cursor() as cursor:
-        cursor.execute("SET SEARCH_PATH TO D02")
-        cursor.execute("""SELECT A.nama_tim tim_a, B.nama_tim tim_b
+def rapat(request):
+    pid = request.session.get('pidrapat')
+
+    if request.COOKIES.get('role') != 'Panitia':
+        return redirect('/dashboard')
+
+    pertandingan = query(f"""SELECT A.nama_tim tim_a, B.nama_tim tim_b
                            FROM D02.TIM_PERTANDINGAN A JOIN D02.TIM_PERTANDINGAN B 
                            ON A.id_pertandingan = B.id_pertandingan 
-                           WHERE A.nama_tim < B.nama_tim AND A.id_pertandingan= '{0}'""".format(pid))
-        pertandingan = cursor.fetchall()
-        response["pertandingan"] = pertandingan
+                           WHERE A.nama_tim < B.nama_tim AND A.id_pertandingan= '{pid}'""")
 
-        if request.method == "POST":
-            # TODO
-            panitia = "588a11d3-6397-4fa0-8d48-7da97cd59538"
+    context = {"pertandingan": pertandingan}
 
-            date = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    if request.method == "POST":
+        user = request.COOKIES.get('username')
+        panitia = query(f"SELECT id_panitia FROM PANITIA WHERE username = '{user}'")[0]['id_panitia']
 
-            cursor.execute("""SELECT id_manajer::text
-                              FROM D02.tim_manajer
-                              WHERE nama_tim =  '{0}'""".format(pertandingan[0][0]))
-            manajer_a = cursor.fetchall()[0][0]
+        date = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-            cursor.execute("""SELECT id_manajer::text
-                              FROM D02.tim_manajer
-                              WHERE nama_tim =  '{0}'""".format(pertandingan[0][1]))
-            manajer_b = cursor.fetchall()[0][0]
+        manajer_a = query(f"""SELECT id_manajer::text
+                          FROM D02.tim_manajer
+                          WHERE nama_tim =  '{pertandingan[0]['tim_a']}'""")[0]['id_manajer']
 
-            cursor.execute("INSERT INTO RAPAT VALUES ('{0}','{1}','{2}','{3}','{4}','{5}')"
-                           .format(pid, date, panitia, manajer_a, manajer_b, request.POST.get("isi")))
+        manajer_b = query(f"""SELECT id_manajer::text
+                          FROM D02.tim_manajer
+                          WHERE nama_tim =  '{pertandingan[0]['tim_b']}'""")[0]['id_manajer']
 
-            return redirect("/mulai_rapat")
+        isi = request.POST.get("isi")
+        query("INSERT INTO RAPAT VALUES ('{0}','{1}','{2}','{3}','{4}','{5}');"
+              .format(pid, date, panitia, manajer_a, manajer_b, isi))
 
-    return render(request, 'rapat.html', response)
+        return redirect("/dashboard")
+
+    return render(request, 'rapat.html', context)
 
