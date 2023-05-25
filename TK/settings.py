@@ -89,26 +89,14 @@ WSGI_APPLICATION = 'TK.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 DATABASE_URL = 'postgresql://postgres:Bu7rxUgIh1WyT9N6Rnnt@containers-us-west-179.railway.app:6087/railway'
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'railway',
-#         'USER': 'postgres',
-#         'PASSWORD': 'Bu7rxUgIh1WyT9N6Rnnt',
-#         'HOST': 'containers-us-west-179.railway.app',
-#         'PORT': '6087',
-#         'CONN_MAX_AGE': 1000
-#     }
-# }
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'tk-basdat',
+        'NAME': 'railway',
         'USER': 'postgres',
-        'PASSWORD': 'postgres',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'PASSWORD': 'Bu7rxUgIh1WyT9N6Rnnt',
+        'HOST': 'containers-us-west-179.railway.app',
+        'PORT': '6087',
         'CONN_MAX_AGE': 1000
     }
 }
