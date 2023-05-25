@@ -1,28 +1,30 @@
-{% extends 'base.html' %}
-{% load static %}
-
+{% extends 'base.html' %} 
+{% load static %} 
 {% block meta %}
-<link href="{% static 'css/manage_pertandingan.css' %}" rel="stylesheet" />
-{% endblock meta %}
+<link href="{% static 'css/manage_pertandingan.css' %}" rel="stylesheet" /> 
+{% endblock meta %} 
 {% block content %}
+
 <head>
     <title>My Website</title>
     <style>
-      .container {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          height: 100vh;
-          flex-direction: column;
-      }
-  </style>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+    </style>
 </head>
+
 <body>
     <div class="container text-center">
-      <h1>PERTANDINGAN BELUM LENGKAP!</h1>
-      <p>KLIK TOMBOL NEXT UNTUK MEMBUAT PERTANDINGAN</p>
-      <button class="button btn-primary">Next</button>
+        <h1>PERTANDINGAN BELUM LENGKAP!</h1>
+        <p>KLIK TOMBOL NEXT UNTUK MEMBUAT PERTANDINGAN</p>
+        <button class="button btn-primary">
+            <a href="/pembuatan_pertandingan/buat_pertandingan"></a>>Next
+        </button>
     </div>
-    
 </body>
 {% endblock content %}
