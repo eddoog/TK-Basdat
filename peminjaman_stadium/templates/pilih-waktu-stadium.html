@@ -28,9 +28,9 @@
                         <th></th>
                         </thead>
                         <tbody>
-                        {% for time in available_time %}
+                        {% for time in available_times %}
                             <tr>
-                                <td>{{ time.0 }} - {{ time.1 }}</td>
+                                <td>{{ time.start }} - {{ time.end }}</td>
                                 <td><button type="submit" name="time" value="{{ time }}">Pesan</button></td>
                             </tr>
                         {% endfor %}

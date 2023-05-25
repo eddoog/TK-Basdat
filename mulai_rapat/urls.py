@@ -5,5 +5,5 @@ app_name = 'mulai_rapat'
 
 urlpatterns = [
     path('', mulai_rapat, name='mulai_rapat'),
-    path(r'rapat/<str:pid>', rapat, name='rapat')
+    path('rapat', rapat, name='rapat')
 ]
