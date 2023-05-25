@@ -36,6 +36,10 @@
                 </div>
                 <div class="midMid3">
                     {% if role == 'Panitia' %}
+                        {% if list_rapat == '[]' %}
+                        <h2 class="text-xl font-semibold mt-8 mb-4 text-center black">Belum ada rapat</h2>
+                        {% else %}
+                        {% for rapat in list_rapat %}
                         <div class="progressz">
                             <p class="no-padding no-margin">Completed</p>
                             <h3 class="no-padding no-margin">Rapat 1</h3>
@@ -61,13 +65,15 @@
                             <h4 class="no-padding no-margin">TIME: AUG 5, 2022</h4>
                         </div>
                         <div class="progressz no-padding no-margin">
-                            <p class="no-padding no-margin">Completed</p>
-                            <h3 class="no-padding no-margin">Rapat 4</h3>
-                            <p>Perwakilan Panitia: Alfredo</p>
+                            <p class="no-padding no-margin">{{rapat.manajer_tim_a}}</p>
+                            <h3 class="no-padding no-margin">{{rapat.manajer_tim_b}}</h3>
+                            <p>Perwakilan Panitia: {{rapat.perwakilan_panitia}}</p>
                             <a class="linkbro no-padding no-margin" href="#">History</a><br />
                             <progress class="no-padding no-margin" value="100" max="100"></progress>
-                            <h4 class="no-padding no-margin">TIME: NOV 30, 2022</h4>
+                            <h4 class="no-padding no-margin">TIME: {{rapat.datetime}}</h4>
                         </div>
+                        {% endfor %}
+                        {% endif %}
                     {% endif %}
                     {% if role == 'Manajer' %}
                         {% if tim %}
@@ -91,14 +97,15 @@
                     
                     {% if role == 'Penonton' %}
                     <div class="progressz match no-padding no-margin">
-                        <p class="no-padding no-margin">Completed</p>
-                        <h3 class="no-padding no-margin">X VS Y</h3>
-                        <p class="no-padding no-margin">Winner: X</p>
+                        <p class="no-padding no-margin">Start: {{start_datetime}}</p>
+                        <h3 class="no-padding no-margin">{{nama_tim}}</h3>
+                        <p class="no-padding no-margin">Nama Stadium: {{nama_stadium}}</p>
+                        <p class="no-padding no-margin">Jenis Tiket: {{jenis_tiket}}</p>
                         <a class="linkbro no-padding no-margin" href="#"
                             >Details</a
                         ><br />
                         <h4 class="no-padding no-margin">
-                            TIME: OCT-27, 2022 - Sept 10, 2022
+                            End: {{end_datetime}}
                         </h4>
                     </div>
                     {% endif %}

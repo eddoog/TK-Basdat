@@ -23,15 +23,15 @@
                 <a class="nav-link me-auto" href="/dashboard/">Dashboard</a>
                 {% if request.COOKIES.role == 'Manajer' %}
                 <a class="nav-link me-auto" href="/manajer/tim/">Mengelola Tim</a>
-                <a class="nav-link me-auto" href="#">Peminjaman Stadium</a>
-                <a class="nav-link me-auto" href="#">List Pertandingan</a>
-                <a class="nav-link me-auto" href="#">History Rapat</a>
+                <a class="nav-link me-auto" href="/peminjaman_stadium/">Peminjaman Stadium</a>
+                <a class="nav-link me-auto" href="/list_pertandingan/">List Pertandingan</a>
+                <a class="nav-link me-auto" href="/history_rapat/">History Rapat</a>
                 {% elif request.COOKIES.role == 'Penonton' %}
-                <a class="nav-link me-auto" href="#">Pembelian Tiket</a>
-                <a class="nav-link me-auto" href="#">List Pertandingan</a>
+                <a class="nav-link me-auto" href="/pembelian_tiket/">Pembelian Tiket</a>
+                <a class="nav-link me-auto" href="/list_pertandingan/">List Pertandingan</a>
                 {% elif request.COOKIES.role == 'Panitia' %}
-                <a class="nav-link me-auto" href="#">Rapat</a>
-                <a class="nav-link me-auto" href="#">Manage Pertandingan</a>
+                <a class="nav-link me-auto" href="/history_rapat/">Rapat</a>
+                <a class="nav-link me-auto" href="/manage_pertandingan/playoff">Manage Pertandingan</a>
                 {% endif %}
 
                 <button class="nav-link ms-auto logout-button">Log Out</button>

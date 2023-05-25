@@ -1,10 +1,19 @@
 from django.shortcuts import render, redirect
 import datetime
 from utils.query import query
+from utils.users import check_username, check_role
 
 
 def mulai_rapat(request):
-    if request.COOKIES.get('role') != 'Panitia':
+    username = check_username(request)
+    if (username is None):
+        return redirect('/')
+
+    role = check_role(request)
+    if (role is None):
+        return redirect('/')
+
+    if (role != 'Panitia'):
         return redirect('/dashboard')
 
     info = query("""  SELECT P.id_pertandingan, T.tim_a, T.tim_b, S.nama stadium, P.start_datetime
@@ -27,10 +36,17 @@ def mulai_rapat(request):
 
 
 def rapat(request):
-    pid = request.session.get('pidrapat')
+    username = check_username(request)
+    if (username is None):
+        return redirect('/')
 
-    if request.COOKIES.get('role') != 'Panitia':
+    role = check_role(request)
+    if (role is None):
+        return redirect('/')
+
+    if (role != 'Panitia'):
         return redirect('/dashboard')
+    pid = request.session.get('pidrapat')
 
     pertandingan = query(f"""SELECT A.nama_tim tim_a, B.nama_tim tim_b
                            FROM D02.TIM_PERTANDINGAN A JOIN D02.TIM_PERTANDINGAN B 
@@ -41,7 +57,8 @@ def rapat(request):
 
     if request.method == "POST":
         user = request.COOKIES.get('username')
-        panitia = query(f"SELECT id_panitia FROM PANITIA WHERE username = '{user}'")[0]['id_panitia']
+        panitia = query(f"SELECT id_panitia FROM PANITIA WHERE username = '{user}'")[
+            0]['id_panitia']
 
         date = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
@@ -60,4 +77,3 @@ def rapat(request):
         return redirect("/dashboard")
 
     return render(request, 'rapat.html', context)
-
