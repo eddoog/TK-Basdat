@@ -14,26 +14,32 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="d-flex justify-content-center me-4">
-                <h2 class="green">Pilih Stadium</h2>
+                <h2 class="green">Beli Tiket</h2>
             </div>
             <div class="col-md-8 col-md-offset-2">
-                <form method="POST" action="/pembelian_tiket/pilih_pertandingan" class="p-5">
+                <form method="POST" action="/pembelian_tiket/pesan_tiket" class="p-5">
                     {% csrf_token %}
                     <div class="form-group row pb-4">
-                        <label for="stadium" class="col-sm-2 col-form-label">Stadium</label>
+                        <label for="stadium" class="col-sm-2 col-form-label">Jenis Tiket</label>
                         <div class="col-sm-10">
-                            <select id="stadium" class="form-select" name="stadium">
-                                {% for data in data %}
-                                <option value="{{ data.nama }}">{{ data.nama }}</option>
-                                {% endfor %}
+                            <select id="tiket" class="form-select" name="tiket">
+                                <option value="General">VIP</option>
+                                <option value="Main East">Main East</option>
+                                <option value="Kategori 1">Kategori 1</option>
+                                <option value="Kategori 2">Kategori 2</option>
                             </select>
                         </div>
                     </div>
                     <div class="row form-group">
-                        <label for="tanggal" class="col-sm-2 col-form-label">Date</label>
+                        <label for="tanggal" class="col-sm-2 col-form-label">Pembayaran</label>
                         <div class="col-sm-10">
-                            <input type="date" class="form-control" name="date-field" id="tanggal" />
+                            <select id="pembayaran" class="form-select" name="pembayaran">
+                                <option value="Kredit">Kredit</option>
+                                <option value="Debit">Debit Rekening</option>
+                                <option value="Paypal">Paypal</option>
+                            </select>
                         </div>
+
                     </div>
                     <div class="d-flex justify-content-center me-4 mt-5">
                         <button type="submit" class="button">
