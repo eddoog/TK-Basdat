@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>List Pertandingan</title>
+
+<!-- Style -->
+<link href="{% static 'css/list-pertandingan.css' %}" rel="stylesheet" />
+{% endblock meta %}
+
+{% block content %}
+<div class="d-flex align-items-center h-100 pb-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="d-flex justify-content-center me-4">
+                <h2 class="orange">List Pertandingan</h2>
+            </div>
+            <div class="col-md-8 col-md-offset-2">
+                <div class="pertandingan-table">
+                    <table class="table table-borderless table-striped">
+                        <thead>
+                            <th>Tim 1</th>
+                            <th>Tim 2</th>
+                            <th>Pilih</th>
+                        </thead>
+                        <tbody>
+                            <!-- Looping Database Pemain.. -->
+                            {% for data in data %}
+                            <tr>
+                                <td>{{ data.tim_bertanding | safe }}</td>
+                                <td>
+                                    <form method="POST" action="/pembelian_tiket/beli_tiket">
+                                        {% csrf_token %}
+                                        <button type="submit" class="btn btn-primary" name="id_pertandingan" value="{{ data.id_pertandingan }}">Pilih</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
