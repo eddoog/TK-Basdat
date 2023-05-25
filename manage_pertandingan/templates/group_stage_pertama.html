@@ -22,6 +22,8 @@
             <tr>
                 <th>Tim 1</th>
                 <th>Tim 2</th>
+                <td>Pemenang</td>
+                <td>Waktu</td>
                 <th>Aksi</th>
             </tr>
         </thead>
@@ -30,6 +32,8 @@
             <tr>
                 <td>{{ pertandingan.tim_1 }}</td>
                 <td>{{ pertandingan.tim_2 }}</td>
+                <td>{{pertandingan.pemenang}}</td>
+                <td>{{pertandingan.waktu}}</td>
                 <td>
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#peristiwaModal1{{pertandingan.id}}">Lihat Peristiwa Tim 1</button>
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#peristiwaModal2{{pertandingan.id}}">Lihat Peristiwa Tim 2</button>

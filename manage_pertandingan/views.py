@@ -54,7 +54,12 @@ def pertandingan_group_stage_pertama(request):
                     ps2.ID_Pertandingan = p.ID_Pertandingan
                     AND pm2.Nama_Tim = t2.Nama_Tim
             ) AS peristiwa_tim_2,
-            p.Start_Datetime AS start_date
+            p.Start_Datetime AS start_date,
+            CASE
+                WHEN tp1.Skor > tp2.Skor THEN t1.Nama_Tim
+                WHEN tp1.Skor < tp2.Skor THEN t2.Nama_Tim
+                ELSE 'Draw'
+            END AS pemenang
         FROM
             Pertandingan p
             JOIN Tim_Pertandingan tp1 ON tp1.ID_Pertandingan = p.ID_Pertandingan
@@ -74,7 +79,8 @@ def pertandingan_group_stage_pertama(request):
             'tim_2': row[2],
             'peristiwa_tim_1': row[3],
             'peristiwa_tim_2': row[4],
-            'start_date': row[5],
+            'waktu': row[5],
+            'pemenang':row[6]
         }
         pertandingan_data.append(pertandingan)
 
