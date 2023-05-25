@@ -30,4 +30,5 @@ urlpatterns = [
     path('authentication/', include('authentication.urls')),
     path('manage_pertandingan/', include('manage_pertandingan.urls')),
     path('pembuatan_pertandingan/', include('pembuatan_pertandingan.urls')),
+    path('manajer/', include('manajer.urls'))
 ]

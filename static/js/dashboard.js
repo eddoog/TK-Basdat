@@ -21,17 +21,16 @@ window.addEventListener('resize', function () {
 
 function showError(message) {
     $('#errorMessage').html('');
-    const text = `<p class="text-danger font-bold text-center">${message}</p>`;
+    const text = `<p class="text-danger fw-bold text-center">${message}</p>`;
     $(text).appendTo('#errorMessage');
 }
 
 $(document).ready(function () {
     $('#logoutButton').click(function (e) {
-        console.log('logouting');
         e.preventDefault();
         $.ajax({
             method: 'POST',
-            url: '/dashboard/logout/',
+            url: '/logout/',
             success: function (data) {
                 window.location.href = `${window.location.protocol}//${window.location.host}`;
             },

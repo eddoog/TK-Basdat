@@ -1,15 +1,17 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse, JsonResponse
-from django.db import connection
 from utils.query import query
-from utils.users import get_role
+from utils.users import get_role, check_username
 from django.views.decorators.csrf import csrf_exempt
-from django.contrib import messages
 import uuid
 
 
 @csrf_exempt
 def index(request):
+    check = check_username(request)
+    if (check is not None):
+        return redirect('/dashboard')
+
     if (request.method == 'GET'):
         return render(request, 'index.html', {})
 
@@ -25,13 +27,11 @@ def index(request):
         print(user_list)
         if len(user_list) != 0:  # User found
             response.set_cookie('username', username)
-            response.set_cookie('password', password)
             response.set_cookie('role', get_role(username))
             response.status_code = 200
             return response
         else:  # User not found
             response.delete_cookie('username')
-            response.delete_cookie('password')
             response.delete_cookie('role')
             response.status_code = 404
             return response
@@ -76,8 +76,17 @@ def index(request):
 
             response.status_code = 200
             response.set_cookie('username', username)
-            response.set_cookie('password', password)
-            response.set_cookie('role', role)
+            response.set_cookie('role', role.capitalize())
             return response
 
     return HttpResponse("Invalid request")
+
+
+@csrf_exempt
+def logout(request):
+    request.session.flush()
+    response = HttpResponse()
+    response.delete_cookie('username')
+    response.delete_cookie('role')
+    response.status_code = 200
+    return response

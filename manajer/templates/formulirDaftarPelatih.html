@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<link href="{% static 'css/formtim.css' %}" rel="stylesheet" />
+<style>
+    .choices__list--multiple .choices__item {
+    background-color: #ff445c;
+    border: #ff445c;
+    }
+</style>
+<title>Daftar Pelatih</title>
+{% endblock meta %} 
+
+{% block content %}
+<div class="container py-5 h-100">
+    <div id="errorMessage"></div>
+    <div class="row justify-content-center align-items-center h-100">
+        <div class="col-12 col-lg-9 col-xl-7">
+            <div
+                class="card shadow-2-strong card-registration"
+                style="border-radius: 15px"
+            >
+                <div class="card-body p-4 p-md-5">
+                    <h3
+                        class="mb-4 pb-2 pb-md-0 mb-md-5 d-flex fw-bold text-lg justify-content-center"
+                    >
+                        Kumpulan Pelatih Yang Dapat Didaftarkan
+                    </h3>
+                    <h5
+                        class="mb-4 pb-2 pb-md-0 mb-md-5 d-flex fw-bold text-lg justify-content-center"
+                        >
+                    Terdapat {{list_pelatih|length}} pelatih yang dapat anda pilih!
+                    </h5>
+                    <form method="POST" data-submit>
+                        <div class="row d-flex justify-content-center mt-100">
+                            <div class="col-md-12">
+                                <select class="form-select" aria-label="Default select example" id="coach-select">
+                                    {% for pelatih in list_pelatih %}
+                                        <option value="{{pelatih.id_pelatih}}">{{ pelatih.nama_depan }} {{pelatih.nama_belakang}} - {{pelatih.spesialisasi}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="mt-md-5">
+                                <button
+                                    class="btn btn-lg"
+                                    type="submit"
+                                    style="
+                                        background-color: #ff445c;
+                                        color: white;
+                                    "
+                                >Choose Coach</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{% static 'js/daftarPelatih.js' %}"></script>
+{% endblock content %}
