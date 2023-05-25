@@ -57,7 +57,7 @@ def rapat(request):
         query("INSERT INTO RAPAT VALUES ('{0}','{1}','{2}','{3}','{4}','{5}');"
               .format(pid, date, panitia, manajer_a, manajer_b, isi))
 
-        return redirect("/mulai_rapat")
+        return redirect("/dashboard")
 
     return render(request, 'rapat.html', context)
 
