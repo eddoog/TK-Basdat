@@ -1,13 +1,4 @@
 from django.shortcuts import render
-<<<<<<< HEAD
-
-# Create your views here.
-def mulai_pertandingan(request):
-    return render(request, 'mulai_pertandingan.html')
-
-def pilih_peristiwa(request):
-    return render(request, 'pilih_peristiwa.html')
-=======
 from django.db import connection
 from django.shortcuts import redirect
 from django.contrib import messages
@@ -112,4 +103,3 @@ def pilih_peristiwa(request, id_pertandingan, nama_tim): #MASIH ERROR
 
 
 
->>>>>>> 01ac25c1ccd1cc8b99b837a5a1d995121080f1c4
